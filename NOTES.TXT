@@ -1,0 +1,10 @@
+** Cosas para resolver **
+- Llamar al Layout solo una vez en el gatsby browser
+- Agregar cosas de SEO en cada pagina
+- Arreglar el problema de cargar los fonts, y el pequeño parpadeo cuando hace reload
+- Doble borde del menu
+- Pagina de CERTIFICADOS -> Quitar employed technologies? Agregar descripcion?
+- Pagina de CERTIFICADOS -> Agregar el link de github? [Hacer esto cuando tenga la pagina de proyectos]
+- Poner los filtros a una etapa más adelante, categorizar por backend, frontend, devops, soft skils?
+- Quitar la parte de tecnologias en credenciales o mejorarlas?
+
