@@ -352,11 +352,12 @@ const GlobalStyle = createGlobalStyle`
 
   .subtitle {
     color: var(--green);
-    margin: 0 0 20px 0;
+    margin: 0 0 100px 0 !important;
     font-size: var(--fz-md);
     font-family: var(--font-mono);
     font-weight: 400;
     line-height: 1.5;
+
     @media (max-width: 1080px) {
       font-size: var(--fz-sm);
     }

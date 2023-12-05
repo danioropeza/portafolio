@@ -6,7 +6,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
-import { Layout, PageTitle } from '@components';
+import { PageContainer } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledArticlesContainer = styled.section`
@@ -183,12 +183,11 @@ const ArticlesPage = ({ location, data }) => {
   };
 
   return (
-    <Layout location={location}>
-      <PageTitle
-        title="Articles"
-        subtitle="I produce valuable content focused on Software Development!"
-      />
-
+    <PageContainer
+      location={location}
+      title="Articles"
+      subtitle="I produce valuable content focused on Software Development!"
+    >
       <StyledArticlesContainer>
         <ul className="articles-grid">
           {prefersReducedMotion ? (
@@ -226,7 +225,7 @@ const ArticlesPage = ({ location, data }) => {
         </ul>
 
       </StyledArticlesContainer>
-    </Layout>
+    </PageContainer>
   );
 };
 

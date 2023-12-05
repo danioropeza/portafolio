@@ -6,7 +6,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
-import { Layout, PageTitle } from '@components';
+import { PageContainer } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledVideosContainer = styled.section`
@@ -124,11 +124,7 @@ const VideosPage = ({ location, data }) => {
   };
 
   return (
-    <Layout location={location}>
-      <PageTitle
-        title="Videos"
-        subtitle="Software development tutorials in Spanish!"
-      />
+    <PageContainer location={location} title="Videos" subtitle="Software development tutorials in Spanish!">
 
       <StyledVideosContainer>
 
@@ -168,7 +164,7 @@ const VideosPage = ({ location, data }) => {
         </ul>
 
       </StyledVideosContainer>
-    </Layout>
+    </PageContainer>
   );
 };
 

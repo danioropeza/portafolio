@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
-import { Layout, PageTitle } from '@components';
+import { PageContainer } from '@components';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
@@ -131,7 +131,6 @@ const StyledTableContainer = styled.div`
 
 const CertificatesPage = ({ location, data }) => {
   const certificates = data.allMarkdownRemark.edges;
-  const revealTitle = useRef(null);
   const revealTable = useRef(null);
   const revealCertificates = useRef([]);
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -141,17 +140,12 @@ const CertificatesPage = ({ location, data }) => {
       return;
     }
 
-    scrollReveal.reveal(revealTitle.current, srConfig());
     scrollReveal.reveal(revealTable.current, srConfig(200, 0));
     revealCertificates.current.forEach((ref, i) => scrollReveal.reveal(ref, srConfig(i * 10)));
   }, []);
 
   return (
-    <Layout location={location}>
-      <PageTitle
-        title="Certificates"
-        subtitle="More than 10+ certified courses on things related to Software Development!"
-      />
+    <PageContainer location={location} title="Certificates" subtitle="More than 10+ certified courses on things related to Software Development!">
       <Helmet title="Certificates" />
 
       <StyledTableContainer ref={revealTable}>
@@ -207,7 +201,7 @@ const CertificatesPage = ({ location, data }) => {
           </tbody>
         </table>
       </StyledTableContainer>
-    </Layout>
+    </PageContainer>
   );
 };
 CertificatesPage.propTypes = {
