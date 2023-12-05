@@ -150,7 +150,7 @@ const CertificatesPage = ({ location, data }) => {
     <Layout location={location}>
       <PageTitle
         title="Certificates"
-        subtitle="More than 10+ certified courses on things related to Software Development"
+        subtitle="More than 10+ certified courses on things related to Software Development!"
       />
       <Helmet title="Certificates" />
 

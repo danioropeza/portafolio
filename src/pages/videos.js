@@ -30,7 +30,7 @@ const StyledVideosContainer = styled.section`
 const StyledVideo = styled.li`
   position: relative;
   cursor: default;
-  transition:   ;
+  transition: var(--transition);
 
   @media (prefers-reduced-motion: no-preference) {
     &:hover,
