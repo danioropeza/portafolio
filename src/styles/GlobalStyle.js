@@ -8,6 +8,10 @@ const GlobalStyle = createGlobalStyle`
   ${fonts};
   ${variables};
 
+  html.sr .load-hidden {
+    visibility: hidden;
+  }
+
   html {
     box-sizing: border-box;
     width: 100%;

@@ -127,7 +127,7 @@ const VideosPage = ({ location, data }) => {
         title="Videos"
         subtitle="Software development tutorials in Spanish!"
       />
-      <StyledVideosContainer ref={revealVideoList}>
+      <StyledVideosContainer ref={revealVideoList} className="load-hidden">
         <ul className="videos-grid">
           {videos &&
               videos.map(({ node }, i) => (

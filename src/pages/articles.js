@@ -188,7 +188,7 @@ const ArticlesPage = ({ location, data }) => {
         title="Articles"
         subtitle="I produce valuable content focused on Software Development!"
       />
-      <StyledArticlesContainer ref={revealArticlesList}>
+      <StyledArticlesContainer ref={revealArticlesList} className="load-hidden">
         <ul className="articles-grid">
           {articles && articles.map(({ node }, i) => (
             <StyledArticle key={i} ref={el => revealArticles.current[i] = el}>{ArticleContent(node)}</StyledArticle>

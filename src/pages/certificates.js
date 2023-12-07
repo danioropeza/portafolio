@@ -152,7 +152,7 @@ const CertificatesPage = ({ location, data }) => {
         subtitle="More than 10+ certified courses on things related to Software Development!"
       />
 
-      <StyledTableContainer ref={revealTable}>
+      <StyledTableContainer ref={revealTable} className="load-hidden">
         <table>
           <thead>
             <tr>
