@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
-import { PageTitle, Layout } from '@components';
+import { PageTitle } from '@components';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
@@ -128,7 +128,7 @@ const StyledTableContainer = styled.div`
   }
 `;
 
-const CertificatesPage = ({ location, data }) => {
+const CertificatesPage = ({ data }) => {
   const certificates = data.allMarkdownRemark.edges;
   const revealTable = useRef(null);
   const revealCertificates = useRef([]);
@@ -146,13 +146,13 @@ const CertificatesPage = ({ location, data }) => {
   }, []);
 
   return (
-    <Layout location={location}>
+    <>
       <PageTitle
         title="Certificates"
         subtitle="More than 10+ certified courses on things related to Software Development!"
       />
 
-      <StyledTableContainer ref={revealTable} className="load-hidden">
+      <StyledTableContainer ref={revealTable} className={prefersReducedMotion ? '' : 'load-hidden'}>
         <table>
           <thead>
             <tr>
@@ -205,11 +205,10 @@ const CertificatesPage = ({ location, data }) => {
           </tbody>
         </table>
       </StyledTableContainer>
-    </Layout>
+    </>
   );
 };
 CertificatesPage.propTypes = {
-  location: PropTypes.object.isRequired,
   data: PropTypes.object.isRequired,
 };
 

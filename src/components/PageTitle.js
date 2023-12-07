@@ -26,7 +26,7 @@ const PageTitle = ({ title, subtitle }) => {
     <StyledPageTitle>
       <Helmet title={title} />
 
-      <header ref={revealTitle} className="load-hidden">
+      <header ref={revealTitle} className={prefersReducedMotion ? '' : 'load-hidden'}>
         <h1 className="big-heading">{title}</h1>
         <p className="subtitle">
           {subtitle}

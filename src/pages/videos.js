@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
-import { Layout, PageTitle } from '@components';
+import { PageTitle } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledVideosContainer = styled.section`
@@ -87,7 +87,7 @@ const StyledVideoTitle = styled.h6`
   }
 `;
 
-const VideosPage = ({ location, data }) => {
+const VideosPage = ({ data }) => {
   const videos = data.allMarkdownRemark.edges.filter(({ node }) => node);
   const revealVideoList = useRef(null);
   const revealVideos = useRef([]);
@@ -122,12 +122,12 @@ const VideosPage = ({ location, data }) => {
   };
 
   return (
-    <Layout location={location}>
+    <>
       <PageTitle
         title="Videos"
         subtitle="Software development tutorials in Spanish!"
       />
-      <StyledVideosContainer ref={revealVideoList} className="load-hidden">
+      <StyledVideosContainer ref={revealVideoList} className={prefersReducedMotion ? '' : 'load-hidden'}>
         <ul className="videos-grid">
           {videos &&
               videos.map(({ node }, i) => (
@@ -140,12 +140,11 @@ const VideosPage = ({ location, data }) => {
               ))}
         </ul>
       </StyledVideosContainer>
-    </Layout>
+    </>
   );
 };
 
 VideosPage.propTypes = {
-  location: PropTypes.object.isRequired,
   data: PropTypes.object.isRequired,
 };
 

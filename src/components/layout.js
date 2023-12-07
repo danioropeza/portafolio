@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import { Head, Header } from '@components';
+import { Header } from '@components';
 import { GlobalStyle, theme } from '@styles';
 import Sidebar from './sidebar';
 
-const Layout = ({ children, location }) => {
+const Layout = ({ children }) => {
   // Sets target="_blank" rel="noopener noreferrer" on external links
-  const handleExternalLinks = () => {
+  /*const handleExternalLinks = () => {
     const allLinks = Array.from(document.querySelectorAll('a'));
     if (allLinks.length > 0) {
       allLinks.forEach(link => {
@@ -17,10 +17,10 @@ const Layout = ({ children, location }) => {
         }
       });
     }
-  };
+  };*/
 
   useEffect(() => {
-    if (location.hash) {
+    /*if (location.hash) {
       const id = location.hash.substring(1); // location.hash without the '#'
       setTimeout(() => {
         const el = document.getElementById(id);
@@ -29,14 +29,14 @@ const Layout = ({ children, location }) => {
           el.focus();
         }
       }, 0);
-    }
+    }*/
 
-    handleExternalLinks();
+    //handleExternalLinks();
   }, []);
 
   return (
     <>
-      <Head />
+      {/*<Head />*/}
 
       <div id="root">
         <ThemeProvider theme={theme}>

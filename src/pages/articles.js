@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
-import { Layout, PageTitle } from '@components';
+import { PageTitle } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledArticlesContainer = styled.section`
@@ -127,7 +127,7 @@ const StyledArticleKeywords = styled.span`
   }
 `;
 
-const ArticlesPage = ({ location, data }) => {
+const ArticlesPage = ({ data }) => {
   const articles = data.allMarkdownRemark.edges.filter(({ node }) => node);
   const revealArticlesList = useRef(null);
   const revealArticles = useRef([]);
@@ -183,12 +183,12 @@ const ArticlesPage = ({ location, data }) => {
   };
 
   return (
-    <Layout location={location}>
+    <>
       <PageTitle
         title="Articles"
         subtitle="I produce valuable content focused on Software Development!"
       />
-      <StyledArticlesContainer ref={revealArticlesList} className="load-hidden">
+      <StyledArticlesContainer ref={revealArticlesList} className={prefersReducedMotion ? '' : 'load-hidden'}>
         <ul className="articles-grid">
           {articles && articles.map(({ node }, i) => (
             <StyledArticle key={i} ref={el => revealArticles.current[i] = el}>{ArticleContent(node)}</StyledArticle>
@@ -196,12 +196,11 @@ const ArticlesPage = ({ location, data }) => {
         </ul>
 
       </StyledArticlesContainer>
-    </Layout>
+    </>
   );
 };
 
 ArticlesPage.propTypes = {
-  location: PropTypes.object.isRequired,
   data: PropTypes.object.isRequired,
 };
 
