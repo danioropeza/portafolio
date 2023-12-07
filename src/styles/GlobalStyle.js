@@ -352,7 +352,6 @@ const GlobalStyle = createGlobalStyle`
 
   .subtitle {
     color: var(--green);
-    margin: 0 0 100px 0 !important;
     font-size: var(--fz-md);
     font-family: var(--font-mono);
     font-weight: 400;

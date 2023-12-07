@@ -1,11 +1,10 @@
 import React, { useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
-import { PageContainer } from '@components';
+import { PageTitle, Layout } from '@components';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
@@ -135,18 +134,23 @@ const CertificatesPage = ({ location, data }) => {
   const revealCertificates = useRef([]);
   const prefersReducedMotion = usePrefersReducedMotion();
 
+
   useEffect(() => {
     if (prefersReducedMotion) {
       return;
     }
-
     scrollReveal.reveal(revealTable.current, srConfig(200, 0));
-    revealCertificates.current.forEach((ref, i) => scrollReveal.reveal(ref, srConfig(i * 10)));
+    revealCertificates.current.forEach((ref, i) => {
+      scrollReveal.reveal(ref, srConfig(i * 10));
+    });
   }, []);
 
   return (
-    <PageContainer location={location} title="Certificates" subtitle="More than 10+ certified courses on things related to Software Development!">
-      <Helmet title="Certificates" />
+    <Layout location={location}>
+      <PageTitle
+        title="Certificates"
+        subtitle="More than 10+ certified courses on things related to Software Development!"
+      />
 
       <StyledTableContainer ref={revealTable}>
         <table>
@@ -201,7 +205,7 @@ const CertificatesPage = ({ location, data }) => {
           </tbody>
         </table>
       </StyledTableContainer>
-    </PageContainer>
+    </Layout>
   );
 };
 CertificatesPage.propTypes = {

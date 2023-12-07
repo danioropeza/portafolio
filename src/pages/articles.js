@@ -1,12 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
-import { PageContainer } from '@components';
+import { Layout, PageTitle } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledArticlesContainer = styled.section`
@@ -129,6 +128,8 @@ const StyledArticleKeywords = styled.span`
 `;
 
 const ArticlesPage = ({ location, data }) => {
+  const articles = data.allMarkdownRemark.edges.filter(({ node }) => node);
+  const revealArticlesList = useRef(null);
   const revealArticles = useRef([]);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -137,10 +138,9 @@ const ArticlesPage = ({ location, data }) => {
       return;
     }
 
-    revealArticles.current.forEach((ref, i) => scrollReveal.reveal(ref, srConfig(i * 15)));
+    scrollReveal.reveal(revealArticlesList.current, srConfig(200, 0));
+    revealArticles.current.forEach((ref, i) => scrollReveal.reveal(ref, srConfig(i * 10)));
   }, []);
-
-  const articlesToShow = data.allMarkdownRemark.edges.filter(({ node }) => node);
 
   const ArticleContent = node => {
     const { frontmatter } = node;
@@ -183,49 +183,20 @@ const ArticlesPage = ({ location, data }) => {
   };
 
   return (
-    <PageContainer
-      location={location}
-      title="Articles"
-      subtitle="I produce valuable content focused on Software Development!"
-    >
-      <StyledArticlesContainer>
+    <Layout location={location}>
+      <PageTitle
+        title="Articles"
+        subtitle="I produce valuable content focused on Software Development!"
+      />
+      <StyledArticlesContainer ref={revealArticlesList}>
         <ul className="articles-grid">
-          {prefersReducedMotion ? (
-            <>
-              {articlesToShow &&
-              articlesToShow.map(({ node }, i) => (
-                <StyledArticle key={i}>{ArticleContent(node)}</StyledArticle>
-              ))}
-            </>
-          ) : (
-            <TransitionGroup component={null}>
-              {articlesToShow &&
-              articlesToShow.map(({ node }, i) => (
-                <CSSTransition
-                  key={i}
-                  classNames="fadeup"
-                  timeout={i * 100}
-                  exit={false}>
-                  <StyledArticle
-                    key={i}
-                    ref={el => {
-                      if (i >= 6) {
-                        return revealArticles.current[i] = el;
-                      }
-                    }}
-                    style={{
-                      transitionDelay: `${i * 100}ms`,
-                    }}>
-                    {ArticleContent(node)}
-                  </StyledArticle>
-                </CSSTransition>
-              ))}
-            </TransitionGroup>
-          )}
+          {articles && articles.map(({ node }, i) => (
+            <StyledArticle key={i} ref={el => revealArticles.current[i] = el}>{ArticleContent(node)}</StyledArticle>
+          ))}
         </ul>
 
       </StyledArticlesContainer>
-    </PageContainer>
+    </Layout>
   );
 };
 

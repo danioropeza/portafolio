@@ -6,7 +6,7 @@ export { default as Menu } from './menu';
 export { default as Side } from './side';
 export { default as Footer } from './footer';
 export { default as PersonalBrandLogo } from './PersonalBrandLogo';
-export { default as PageContainer } from './PageContainer';
+export { default as PageTitle } from './PageTitle';
 export { default as Hero } from './sections/hero';
 export { default as About } from './sections/about';
 export { default as Jobs } from './sections/jobs';

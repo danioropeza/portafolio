@@ -1,12 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
-import { PageContainer } from '@components';
+import { Layout, PageTitle } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledVideosContainer = styled.section`
@@ -89,6 +88,8 @@ const StyledVideoTitle = styled.h6`
 `;
 
 const VideosPage = ({ location, data }) => {
+  const videos = data.allMarkdownRemark.edges.filter(({ node }) => node);
+  const revealVideoList = useRef(null);
   const revealVideos = useRef([]);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -97,11 +98,9 @@ const VideosPage = ({ location, data }) => {
     if (prefersReducedMotion) {
       return;
     }
-
-    revealVideos.current.forEach((ref, i) => scrollReveal.reveal(ref, srConfig(i * 15)));
+    scrollReveal.reveal(revealVideoList.current, srConfig(200, 0));
+    revealVideos.current.forEach((ref, i) => scrollReveal.reveal(ref, srConfig(i * 10)));
   }, []);
-
-  const videosToShow = data.allMarkdownRemark.edges.filter(({ node }) => node);
 
   const VideoContent = node => {
     const { frontmatter } = node;
@@ -118,53 +117,30 @@ const VideosPage = ({ location, data }) => {
             {title}
           </a>
         </StyledVideoTitle>
-
       </div>
     );
   };
 
   return (
-    <PageContainer location={location} title="Videos" subtitle="Software development tutorials in Spanish!">
-
-      <StyledVideosContainer>
-
+    <Layout location={location}>
+      <PageTitle
+        title="Videos"
+        subtitle="Software development tutorials in Spanish!"
+      />
+      <StyledVideosContainer ref={revealVideoList}>
         <ul className="videos-grid">
-          {prefersReducedMotion ? (
-            <>
-              {videosToShow &&
-              videosToShow.map(({ node }, i) => (
-                <StyledVideo key={i}>{VideoContent(node)}</StyledVideo>
-              ))}
-            </>
-          ) : (
-            <TransitionGroup component={null}>
-              {videosToShow &&
-              videosToShow.map(({ node }, i) => (
-                <CSSTransition
+          {videos &&
+              videos.map(({ node }, i) => (
+                <StyledVideo
                   key={i}
-                  classNames="fadeup"
-                  timeout={i * 100}
-                  exit={false}>
-                  <StyledVideo
-                    key={i}
-                    ref={el => {
-                      if (i >= 6) {
-                        return revealVideos.current[i] = el;
-                      }
-                    }}
-                    style={{
-                      transitionDelay: `${i * 100}ms`,
-                    }}>
-                    {VideoContent(node)}
-                  </StyledVideo>
-                </CSSTransition>
+                  ref={el => revealVideos.current[i] = el}
+                >
+                  {VideoContent(node)}
+                </StyledVideo>
               ))}
-            </TransitionGroup>
-          )}
         </ul>
-
       </StyledVideosContainer>
-    </PageContainer>
+    </Layout>
   );
 };
 
