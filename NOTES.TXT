@@ -8,4 +8,5 @@
 - Poner los filtros a una etapa más adelante, categorizar por backend, frontend, devops, soft skils?
 - Quitar la parte de tecnologias en credenciales o mejorarlas?
 - Ver el tema del SEO y el componente <Head>
+- Cambiar imagen de perfil a 350 pixeles
 
