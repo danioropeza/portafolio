@@ -7,7 +7,8 @@ ${({ theme }) => theme.mixins.flexCenter};
   padding: 0;
   margin-top: -70px;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  gap: 100px;
   min-height: 100vh;
   height: 100vh;
 
@@ -114,6 +115,11 @@ const Hero = () => {
 
   return (
     <StyledHeroSection>
+      <div className="hero-details">
+        {heroItems.map((item, i) => (
+          <div key={i}>{item}</div>
+        ))}
+      </div>
       <div className="hero-photo">
         <StaticImage
           className="img"
@@ -127,11 +133,6 @@ const Hero = () => {
           width={325}
           height={325}
         />
-      </div>
-      <div className="hero-details">
-        {heroItems.map((item, i) => (
-          <div key={i}>{item}</div>
-        ))}
       </div>
     </StyledHeroSection>
   );

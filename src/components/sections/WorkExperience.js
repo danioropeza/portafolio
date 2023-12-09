@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 import { KEY_CODES } from '@utils';
 
-const StyledJobsSection = styled.section`
+const StyledWorkExperiencesSection = styled.section`
   .inner {
     display: flex;
 
@@ -162,8 +162,8 @@ const StyledTabPanel = styled.div`
 const WorkExperience = () => {
   const data = useStaticQuery(graphql`
     query {
-      workExperience: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/work-experience/" } }
+      workExperiences: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/content/work-experiences/" } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
@@ -182,7 +182,7 @@ const WorkExperience = () => {
     }
   `);
 
-  const jobsData = data.workExperience.edges;
+  const workExperiences = data.workExperiences.edges;
 
   const [activeTabId, setActiveTabId] = useState(0);
   const [tabFocus, setTabFocus] = useState(null);
@@ -228,13 +228,13 @@ const WorkExperience = () => {
   };
 
   return (
-    <StyledJobsSection id="work-experience">
+    <StyledWorkExperiencesSection id="work-experience">
       <h2 className="section-heading">Work Experience</h2>
 
       <div className="inner">
-        <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>
-          {jobsData &&
-            jobsData.map(({ node }, i) => {
+        <StyledTabList role="tablist" aria-label="WorkExperience tabs" onKeyDown={e => onKeyDown(e)}>
+          {workExperiences &&
+            workExperiences.map(({ node }, i) => {
               const { company } = node.frontmatter;
               return (
                 <StyledTabButton
@@ -245,7 +245,7 @@ const WorkExperience = () => {
                   id={`tab-${i}`}
                   role="tab"
                   tabIndex={activeTabId === i ? '0' : '-1'}
-                  aria-selected={activeTabId === i ? true : false}
+                  aria-selected={activeTabId === i}
                   aria-controls={`panel-${i}`}>
                   <span>{company}</span>
                 </StyledTabButton>
@@ -255,8 +255,8 @@ const WorkExperience = () => {
         </StyledTabList>
 
         <StyledTabPanels>
-          {jobsData &&
-            jobsData.map(({ node }, i) => {
+          {workExperiences &&
+            workExperiences.map(({ node }, i) => {
               const { frontmatter, html } = node;
               const { title, url, company, range } = frontmatter;
 
@@ -288,7 +288,7 @@ const WorkExperience = () => {
             })}
         </StyledTabPanels>
       </div>
-    </StyledJobsSection>
+    </StyledWorkExperiencesSection>
   );
 };
 
