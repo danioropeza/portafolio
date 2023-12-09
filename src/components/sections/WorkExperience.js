@@ -2,14 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
-import { srConfig } from '@config';
 import { KEY_CODES } from '@utils';
-import scrollReveal from '@utils/scrollReveal';
-import { usePrefersReducedMotion } from '@hooks';
 
 const StyledJobsSection = styled.section`
-  max-width: 700px;
-
   .inner {
     display: flex;
 
@@ -164,11 +159,11 @@ const StyledTabPanel = styled.div`
   }
 `;
 
-const Jobs = () => {
+const WorkExperience = () => {
   const data = useStaticQuery(graphql`
     query {
-      jobs: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/jobs/" } }
+      workExperience: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/content/work-experience/" } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
@@ -187,21 +182,11 @@ const Jobs = () => {
     }
   `);
 
-  const jobsData = data.jobs.edges;
+  const jobsData = data.workExperience.edges;
 
   const [activeTabId, setActiveTabId] = useState(0);
   const [tabFocus, setTabFocus] = useState(null);
   const tabs = useRef([]);
-  const revealContainer = useRef(null);
-  const prefersReducedMotion = usePrefersReducedMotion();
-
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-
-    scrollReveal.reveal(revealContainer.current, srConfig());
-  }, []);
 
   const focusTab = () => {
     if (tabs.current[tabFocus]) {
@@ -243,8 +228,8 @@ const Jobs = () => {
   };
 
   return (
-    <StyledJobsSection id="jobs" ref={revealContainer}>
-      <h2 className="numbered-heading">Where I’ve Worked</h2>
+    <StyledJobsSection id="work-experience">
+      <h2 className="section-heading">Work Experience</h2>
 
       <div className="inner">
         <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>
@@ -307,4 +292,4 @@ const Jobs = () => {
   );
 };
 
-export default Jobs;
+export default WorkExperience;

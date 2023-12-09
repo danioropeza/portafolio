@@ -137,7 +137,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: clamp(40px, 8vw, 60px);
   }
 
-  .numbered-heading {
+  .section-heading {
     display: flex;
     align-items: center;
     position: relative;
@@ -149,8 +149,6 @@ const GlobalStyle = createGlobalStyle`
     &:before {
       position: relative;
       bottom: 4px;
-      counter-increment: section;
-      content: '0' counter(section) '.';
       margin-right: 10px;
       color: var(--green);
       font-family: var(--font-mono);
@@ -168,7 +166,7 @@ const GlobalStyle = createGlobalStyle`
       display: block;
       position: relative;
       top: -5px;
-      width: 300px;
+      width: 100%;
       height: 1px;
       margin-left: 20px;
       background-color: var(--lightest-navy);

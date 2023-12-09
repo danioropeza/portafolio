@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
-import { Hero } from '@components';
+import { Hero, WorkExperience } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 
 const AboutMePage = () => {
@@ -21,6 +21,7 @@ const AboutMePage = () => {
 
   const sections = [
     <Hero />,
+    <WorkExperience />,
   ];
 
   return (
