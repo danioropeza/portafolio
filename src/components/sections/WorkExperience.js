@@ -232,7 +232,7 @@ const WorkExperience = () => {
       <h2 className="section-heading">Work Experience</h2>
 
       <div className="inner">
-        <StyledTabList role="tablist" aria-label="WorkExperience tabs" onKeyDown={e => onKeyDown(e)}>
+        <StyledTabList role="tablist" aria-label="Work Experience tabs" onKeyDown={e => onKeyDown(e)}>
           {workExperiences &&
             workExperiences.map(({ node }, i) => {
               const { company } = node.frontmatter;
