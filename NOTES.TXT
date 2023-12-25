@@ -11,6 +11,7 @@
 - Cuando neon, cuando no
 - Borrar los Navys y otros colores ahí sueltos
 - Mi icono
+- Hover de iconos en sidebar menu
 - Color oficial?
 - Arreglar el problema de hover al hacer click en articulos
 - Opitimizar imagen de background y quitar marca de agua
