@@ -72,11 +72,8 @@ const StyledProjectTitle = styled.h6`
 
   color: var(--white);
   text-shadow:
-      0 0 7px var(--white),
-      0 0 21px var(--white),
-      0 0 42px var(--green),
-      0 0 82px var(--green),
-      0 0 151px var(--green);
+      0 0 10px var(--white),
+      0 0 40px var(--green);
 `;
 
 const StyledProjectCarousel = styled.div`
