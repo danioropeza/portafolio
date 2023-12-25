@@ -93,7 +93,7 @@ const PrismStyles = css`
 
   /* Language badges */
   .gatsby-highlight pre[class*='language-']::before {
-    background: var(--lightest-navy);
+    background: var(--green);
     color: var(--white);
     font-size: var(--fz-xxs);
     font-family: var(--font-mono);

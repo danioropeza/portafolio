@@ -1,12 +1,19 @@
 ** Cosas para resolver **
-- Llamar al Layout solo una vez en el gatsby browser
-- Agregar cosas de SEO en cada pagina
-- Arreglar el problema de cargar los fonts, y el pequeño parpadeo cuando hace reload
-- Doble borde del menu
 - Pagina de CERTIFICADOS -> Quitar employed technologies? Agregar descripcion?
 - Pagina de CERTIFICADOS -> Agregar el link de github? [Hacer esto cuando tenga la pagina de proyectos]
 - Poner los filtros a una etapa más adelante, categorizar por backend, frontend, devops, soft skils?
-- Quitar la parte de tecnologias en credenciales o mejorarlas?
 - Ver el tema del SEO y el componente <Head>
 - Cambiar imagen de perfil a 350 pixeles
 - Redactar lo que hay que poner en Work Experience, y evaluar si tecnologias va ahí o en proyectos o en ambos.
+
+
+- Iconos mas pequeños?
+- Cuando neon, cuando no
+- Borrar los Navys y otros colores ahí sueltos
+- Mi icono
+- Color oficial?
+- Arreglar el problema de hover al hacer click en articulos
+- Opitimizar imagen de background y quitar marca de agua
+- Refactor de box shadow
+- Importar sin una URL, el font family de Grafiti
+- Remover pensieve, tags, posts

@@ -74,7 +74,7 @@ const TagTemplate = ({ pageContext, data, location }) => {
                 <h2>
                   <Link to={slug}>{title}</Link>
                 </h2>
-                <p className="subtitle">
+                <p className="page-subtitle">
                   <time>
                     {new Date(date).toLocaleDateString('en-US', {
                       year: 'numeric',

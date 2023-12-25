@@ -59,7 +59,6 @@ const StyledPost = styled.li`
   }
 
   .post__inner {
-    ${({ theme }) => theme.mixins.boxShadow};
     ${({ theme }) => theme.mixins.flexBetween};
     flex-direction: column;
     align-items: flex-start;
@@ -68,7 +67,7 @@ const StyledPost = styled.li`
     padding: 2rem 1.75rem;
     border-radius: var(--border-radius);
     transition: var(--transition);
-    background-color: var(--light-navy);
+    background-color: var(--light-black);
 
     header,
     a {
@@ -151,8 +150,8 @@ const PensievePage = ({ location, data }) => {
 
       <StyledMainContainer>
         <header>
-          <h1 className="big-heading">Pensieve</h1>
-          <p className="subtitle">
+          <h1 className="page-title">Pensieve</h1>
+          <p className="page-subtitle">
             <a href="https://www.wizardingworld.com/writing-by-jk-rowling/pensieve">
               a collection of memories
             </a>

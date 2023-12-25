@@ -67,8 +67,8 @@ const StyledTabButton = styled.button`
   width: 100%;
   height: var(--tab-height);
   padding: 0 20px 2px;
-  border-left: 2px solid var(--lightest-navy);
-  background-color: transparent;
+  border-left: 2px solid var(--green);
+  background-color: ${({ isActive }) => (isActive ? 'var(--light-black)' : 'transparent')};
   color: ${({ isActive }) => (isActive ? 'var(--green)' : 'var(--slate)')};
   font-family: var(--font-mono);
   font-size: var(--fz-xs);
@@ -83,13 +83,13 @@ const StyledTabButton = styled.button`
     min-width: 120px;
     padding: 0 15px;
     border-left: 0;
-    border-bottom: 2px solid var(--lightest-navy);
+    border-bottom: 2px solid var(--green);
     text-align: center;
   }
 
   &:hover,
   &:focus {
-    background-color: var(--light-navy);
+    background-color: var(--light-black);
   }
 `;
 
@@ -307,7 +307,7 @@ const PersonalInformation = () => {
 
   return (
     <StyledPersonalInformationSection id="personal-information">
-      <h2 className="section-heading">More about me</h2>
+      <h2 className="section-heading">More About Me</h2>
 
       <div className="inner">
         <StyledTabList role="tablist" aria-label="Personal Information tabs" onKeyDown={e => onKeyDown(e)}>

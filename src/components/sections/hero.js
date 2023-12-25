@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
 const StyledHeroSection = styled.section`
@@ -17,11 +18,11 @@ ${({ theme }) => theme.mixins.flexCenter};
   }
 
   .hero-photo {
-    ${({ theme }) => theme.mixins.boxShadow};
     display: block;
     position: relative;
     border-radius: var(--border-radius);
     background-color: var(--green);
+    transition: var(--transition);
 
     &:hover,
     &:focus {
@@ -42,7 +43,7 @@ ${({ theme }) => theme.mixins.flexCenter};
       position: relative;
       border-radius: var(--border-radius);
       mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1);
+      filter: grayscale(50%) contrast(1);
       transition: var(--transition);
     }
 
@@ -60,7 +61,6 @@ ${({ theme }) => theme.mixins.flexCenter};
     &:before {
       top: 0;
       left: 0;
-      background-color: var(--navy);
       mix-blend-mode: screen;
     }
 
@@ -85,33 +85,33 @@ ${({ theme }) => theme.mixins.flexCenter};
       }
     }
 
+    h2 {
+      font-size: clamp(40px, 8vw, 80px);
+    }
+
     h3 {
       margin-top: 5px;
       color: var(--slate);
       line-height: 0.9;
-      font-size: clamp(20px, 5vw, 50px);
+      font-size: clamp(25px, 5vw, 50px);
+      font-family:  'Polo', 'Stasiun', 'flottflott', 'Sivar Pro', 'Edu TAS Beginner', sans-serif !important;
     }
 
-    p {
-      margin: 20px 0 0;
-      max-width: 540px;
+    .see-projects-button {
+      margin: 30px 0 0 4px;
+      ${({ theme }) => theme.mixins.bigButton};
+      font-size: var(--fz-xs);
     }
   }
 `;
 
 const Hero = () => {
   const Greeting = <h1>Hi, my name is</h1>;
-  const Name = <h2 className="big-heading">Daniel Oropeza</h2>;
-  const Profession = <h3 className="big-heading">Full-stack Sofware Engineer</h3>;
-  const Phrase = (
-    <>
-      <p>
-        Frase chingona Frase chingona Frase chingona Frase chingona Frase chingona Frase chingona Frase chingona
-      </p>
-    </>
-  );
+  const Name = <h2 className="page-title">Daniel Oropeza</h2>;
+  const Profession = <h3>Full-stack Software Engineer</h3>;
+  const SeeMyProjectsButton = <Link className='see-projects-button' to="/projects">See my projects</Link>;
 
-  const heroItems = [Greeting, Name, Profession, Phrase];
+  const heroItems = [Greeting, Name, Profession, SeeMyProjectsButton];
 
   return (
     <StyledHeroSection>

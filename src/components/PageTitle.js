@@ -27,8 +27,8 @@ const PageTitle = ({ title, subtitle }) => {
       <Helmet title={title} />
 
       <header ref={revealTitle} className={prefersReducedMotion ? '' : 'load-hidden'}>
-        <h1 className="big-heading">{title}</h1>
-        <p className="subtitle">
+        <h1 className="page-title">{title}</h1>
+        <p className="page-subtitle">
           {subtitle}
         </p>
       </header>

@@ -41,33 +41,41 @@ const StyledVideo = styled.li`
   }
 
   .video-content {
-    ${({ theme }) => theme.mixins.boxShadow};
     ${({ theme }) => theme.mixins.flexBetween};
     flex-direction: column;
     align-items: flex-start;
     position: relative;
+    border: 1px solid var(--green);
     border-radius: var(--border-radius);
-    background-color: var(--light-navy);
+    background-color: transparent;
     transition: var(--transition);
     overflow: auto;
 
     &:hover {
       .img {
-        mix-blend-mode: multiply;
-        filter: grayscale(50%) contrast(1);
+        mix-blend-mode: normal;
+        filter: none;
       }
     }
   }
 `;
 
 const StyledVideoImage = styled.div`
-  ${({ theme }) => theme.mixins.boxShadow};
-  background-color: var(--green);
+  .img-container {
+    border-radius: var(--border-radius);
+    padding: 1rem 1rem 0 1rem;
+  }
+  .img-container-background {
+    background-color: var(--green);
+  }
+  .img {
+    mix-blend-mode: multiply;
+    filter: grayscale(50%) contrast(1);
+  }
 `;
 
 const StyledVideoTitle = styled.h6`
   margin: 0;
-  color: var(--lightest-slate);
   font-size: var(--fz-md);
   padding: 1rem 1.2rem;
 
@@ -109,7 +117,11 @@ const VideosPage = ({ data }) => {
     return (
       <div className="video-content">
         <StyledVideoImage>
-          <GatsbyImage image={image} alt={title} className="img"/>
+          <div className='img-container'>
+            <div className='img-container-background'>
+              <GatsbyImage image={image} alt={title} className="img"/>
+            </div>
+          </div>
         </StyledVideoImage>
 
         <StyledVideoTitle>
@@ -125,7 +137,7 @@ const VideosPage = ({ data }) => {
     <>
       <PageTitle
         title="Videos"
-        subtitle="Software development tutorials in Spanish!"
+        subtitle="Software Development tutorials in Spanish!"
       />
       <StyledVideosContainer ref={revealVideoList} className={prefersReducedMotion ? '' : 'load-hidden'}>
         <ul className="videos-grid">

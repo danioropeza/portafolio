@@ -5,6 +5,7 @@ import TransitionStyles from './TransitionStyles';
 import PrismStyles from './PrismStyles';
 
 const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.cdnfonts.com/css/polo');
   ${fonts};
   ${variables};
 
@@ -25,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::selection {
-    background-color: var(--lightest-navy);
+    background-color: var(--green);
     color: var(--lightest-slate);
   }
 
@@ -57,17 +58,17 @@ const GlobalStyle = createGlobalStyle`
   /* Scrollbar Styles */
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--dark-slate) var(--navy);
+    scrollbar-color: var(--dark-slate) var(--black);
   }
   ::-webkit-scrollbar {
     width: 12px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--navy);
+    background-color: var(--black);
   }
   ::-webkit-scrollbar-thumb {
     background-color: var(--dark-slate);
-    border: 3px solid var(--navy);
+    border: 3px solid var(--black);
     border-radius: 10px;
   }
 
@@ -78,7 +79,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--navy);
+    background-color: var(--black);
     color: var(--slate);
     font-family: var(--font-sans);
     font-size: var(--fz-xl);
@@ -127,9 +128,37 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.1;
   }
 
-  .big-heading {
-    margin: 0;
-    font-size: clamp(40px, 8vw, 80px);
+  .page-title {
+    font-size: clamp(25px, 5vw, 50px);
+
+    font-family:  'Polo', 'Stasiun', 'flottflott', 'Sivar Pro', 'Edu TAS Beginner', sans-serif !important;
+    color: var(--white);
+    text-shadow:
+        0 0 7px var(--white),
+        0 0 21px var(--white),
+        0 0 42px var(--green),
+        0 0 82px var(--green),
+        0 0 151px var(--green);
+  }
+
+  .page-subtitle {
+    color: var(--green);
+    font-size: var(--fz-md);
+    font-family: var(--font-mono);
+    font-weight: 400;
+    line-height: 1.5;
+
+    @media (max-width: 1080px) {
+      font-size: var(--fz-sm);
+    }
+    @media (max-width: 768px) {
+      font-size: var(--fz-xs);
+    }
+
+    a {
+      ${({ theme }) => theme.mixins.inlineLink};
+      line-height: 1.5;
+    }
   }
 
   .medium-heading {
@@ -169,7 +198,7 @@ const GlobalStyle = createGlobalStyle`
       width: 100%;
       height: 1px;
       margin-left: 20px;
-      background-color: var(--lightest-navy);
+      background-color: var(--green);
 
       @media (max-width: 1080px) {
         width: 200px;
@@ -217,7 +246,17 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      color: var(--green);
+      svg {
+        color: var(--green);
+      }
+      color: var(--white);
+      text-shadow:
+            0 0 21px var(--white),
+            0 0 60px var(--green);
+
+      svg {
+        filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+      }
     }
 
     &.inline-link {
@@ -259,7 +298,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     & > code {
-      background-color: var(--light-navy);
+      background-color: var(--light-black);
       color: var(--white);
       font-size: var(--fz-sm);
       border-radius: var(--border-radius);
@@ -302,7 +341,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   hr {
-    background-color: var(--lightest-navy);
+    background-color: var(--green);
     height: 1px;
     border-width: 0px;
     border-style: initial;
@@ -316,31 +355,6 @@ const GlobalStyle = createGlobalStyle`
     font-size: var(--fz-md);
   }
 
-  .skip-to-content {
-    ${({ theme }) => theme.mixins.button};
-    position: absolute;
-    top: auto;
-    left: -999px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    z-index: -99;
-
-    &:hover,
-    &:focus {
-      background-color: var(--green);
-      color: var(--navy);
-      top: 0;
-      left: 0;
-      width: auto;
-      height: auto;
-      overflow: auto;
-      z-index: 99;
-      box-shadow: none;
-      transform: none;
-    }
-  }
-
   #logo {
     color: var(--green);
   }
@@ -350,26 +364,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: var(--font-mono);
     font-size: var(--fz-md);
     font-weight: 400;
-  }
-
-  .subtitle {
-    color: var(--green);
-    font-size: var(--fz-md);
-    font-family: var(--font-mono);
-    font-weight: 400;
-    line-height: 1.5;
-
-    @media (max-width: 1080px) {
-      font-size: var(--fz-sm);
-    }
-    @media (max-width: 768px) {
-      font-size: var(--fz-xs);
-    }
-
-    a {
-      ${({ theme }) => theme.mixins.inlineLink};
-      line-height: 1.5;
-    }
   }
 
   .breadcrumb {

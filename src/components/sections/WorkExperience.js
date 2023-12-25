@@ -68,8 +68,8 @@ const StyledTabButton = styled.button`
   width: 100%;
   height: var(--tab-height);
   padding: 0 20px 2px;
-  border-left: 2px solid var(--lightest-navy);
-  background-color: transparent;
+  border-left: 2px solid var(--light-black);
+  background-color: ${({ isActive }) => (isActive ? 'var(--light-black)' : 'transparent')};
   color: ${({ isActive }) => (isActive ? 'var(--green)' : 'var(--slate)')};
   font-family: var(--font-mono);
   font-size: var(--fz-xs);
@@ -84,13 +84,13 @@ const StyledTabButton = styled.button`
     min-width: 120px;
     padding: 0 15px;
     border-left: 0;
-    border-bottom: 2px solid var(--lightest-navy);
+    border-bottom: 2px solid var(--green);
     text-align: center;
   }
 
   &:hover,
   &:focus {
-    background-color: var(--light-navy);
+    background-color: var(--light-black);
   }
 `;
 

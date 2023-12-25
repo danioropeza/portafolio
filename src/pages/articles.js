@@ -34,6 +34,12 @@ const StyledArticle = styled.li`
   @media (prefers-reduced-motion: no-preference) {
     &:hover,
     &:focus-within {
+      a {
+        color: var(--white);
+        text-shadow:
+          0 0 21px var(--white),
+          0 0 60px var(--green);
+      }
       .article-content {
         transform: translateY(-7px);
       }
@@ -41,19 +47,19 @@ const StyledArticle = styled.li`
   }
 
   .article-content {
-    ${({ theme }) => theme.mixins.boxShadow};
     display: flex;
     flex-direction: column;
     position: relative;
     border-radius: var(--border-radius);
-    background-color: var(--light-navy);
+    border: 1px solid var(--green);
+    background-color: transparent;
     transition: var(--transition);
     overflow: auto;
 
     &:hover {
       .img {
-        mix-blend-mode: multiply;
-        filter: grayscale(50%) contrast(1);
+        mix-blend-mode: normal;
+        filter: none;
       }
     }
   }
@@ -107,9 +113,13 @@ const StyledArticleDescription = styled.div`
 
 
 const StyledArticleImage = styled.div`
-  ${({ theme }) => theme.mixins.boxShadow};
   background-color: var(--green);
   margin: 0 1.2rem 1rem 1.2rem;
+
+  .img {
+    mix-blend-mode: multiply;
+    filter: grayscale(50%) contrast(1);
+  }
 `;
 
 const StyledArticleKeywords = styled.span`

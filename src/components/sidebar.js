@@ -8,6 +8,8 @@ import { loaderDelay } from '@utils';
 import { usePrefersReducedMotion } from '@hooks';
 import { Icon } from '@components/icons';
 import { Footer, PersonalBrandLogo } from '@components';
+import contentBackground from '../images/wall.jpeg';
+import sidebarBackground from '../images/increased-wall.jpeg';
 
 const SidebarMenu = styled.div`
   position: fixed;
@@ -16,9 +18,15 @@ const SidebarMenu = styled.div`
   left: 0;
   width: var(--sidebar-width);
   height: 100vh;
-  background: var(--dark-navy);
+  background-image: url(${sidebarBackground});
   height: 100vh;
   overflow: hidden;
+  border-right: 1px solid var(--green);
+  box-shadow:
+      0 0 2px var(--white),
+      0 0 8px var(--white),
+      0 0 24px var(--green);
+      0 0 32px var(--green);
   border-top-right-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
 `;
@@ -48,6 +56,9 @@ const NavigationButton = styled(Link)`
   width: var(--sidebar-width);
   background-color: transparent;
   border: 1px solid var(--green);
+  box-shadow:
+      0 0 2px var(--white),
+      0 0 10px var(--green);
   border-right: none;
   border-left: none;
   border-top-right-radius: var(--border-radius);
@@ -74,7 +85,13 @@ const NavigationButton = styled(Link)`
   &.active,
   &:hover,
   &:focus-visible {
-    color: var(--green);
+    color: var(--white);
+    text-shadow:
+      0 0 7px var(--white),
+      0 0 21px var(--white),
+      0 0 42px var(--green),
+      0 0 82px var(--green),
+      0 0 151px var(--green);
     outline: none;
 
     .navigation-content {
@@ -91,7 +108,8 @@ const SidebarContent = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 120px 50px 100px 350px;
+  padding: 90px 50px 100px 350px;
+  background-image: url(${contentBackground});
 `;
 
 const Sidebar = ({ children }) => {

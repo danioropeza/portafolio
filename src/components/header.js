@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { socialMedia } from '@config';
 import { loaderDelay } from '@utils';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
@@ -8,14 +8,13 @@ import { Icon } from '@components/icons';
 
 const StyledHeaderWrapper = styled.header`
   ${({ theme }) => theme.mixins.flexEnd};
-  position: fixed;
+  position: absolute;
   top: 0;
   z-index: 11;
   padding: 0px 50px;
   width: 100%;
   height: var(--nav-height);
-  background-color: rgba(10, 25, 47, 0.85);
-  backdrop-filter: blur(10px);
+  background-color: transparent;
   transition: var(--transition);
 
   @media (max-width: 1080px) {
@@ -25,26 +24,6 @@ const StyledHeaderWrapper = styled.header`
     padding: 0 25px;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    ${props =>
-    props.scrollDirection === 'up' &&
-      !props.scrolledToTop &&
-      css`
-        height: var(--nav-scroll-height);
-        transform: translateY(0px);
-        background-color: rgba(10, 25, 47, 0.85);
-        box-shadow: 0 10px 30px -10px var(--navy-shadow);
-      `};
-
-    ${props =>
-    props.scrollDirection === 'down' &&
-      !props.scrolledToTop &&
-      css`
-        height: var(--nav-scroll-height);
-        transform: translateY(calc(var(--nav-scroll-height) * -1));
-        box-shadow: 0 10px 30px -10px var(--navy-shadow);
-      `};
-  }
 `;
 
 const StyledHeaderContent = styled.nav`

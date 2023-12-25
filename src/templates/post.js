@@ -37,7 +37,7 @@ const StyledPostContent = styled.div`
   }
 
   code {
-    background-color: var(--lightest-navy);
+    background-color: var(--green);
     color: var(--lightest-slate);
     border-radius: var(--border-radius);
     font-size: var(--fz-sm);
@@ -66,7 +66,7 @@ const PostTemplate = ({ data, location }) => {
 
         <StyledPostHeader>
           <h1 className="medium-heading">{title}</h1>
-          <p className="subtitle">
+          <p className="page-subtitle">
             <time>
               {new Date(date).toLocaleDateString('en-US', {
                 year: 'numeric',
