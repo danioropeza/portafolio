@@ -8,6 +8,9 @@ import scrollReveal from '@utils/scrollReveal';
 import { PageTitle } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 import { IconReload, IconLeftRow, IconRightRow, IconClose, IconSmallClose, IconMinimize, IconReduceScreen, IconWorldWide } from '@components/icons';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Lightbox } from 'react-modal-image';
 
 const StyledProjectsContainer = styled.section`
   display: flex;
@@ -144,7 +147,7 @@ const StyledWebHeader = styled.div`
 
     .bottom-web-header-search {
       padding: 5px;
-      height: 60%;
+      height: 50%;
       width: 50%;
       border: 1px solid var(--black);
       background-color: var(--green);
@@ -161,6 +164,23 @@ const StyledWebContent = styled.div`
   .img {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+  }
+
+  .carousel.carousel-slider li.slide.selected {
+      z-index: 0 !important;
+  }
+`;
+const StyledProjectsPage = styled.div`
+  .__react_modal_image__modal_content {
+    img {
+      max-height: 600px;
+      max-width: 600px;
+    }
+  }
+
+  img[alt=""],
+  img:not([alt]) {
+    filter: none;
   }
 `;
 
@@ -181,9 +201,8 @@ const ProjectsPage = ({ data }) => {
 
   const ProjectContent = node => {
     const { frontmatter } = node;
-    const { title, description, thumbnail, keywords } = frontmatter;
-    const image = getImage(thumbnail);
-
+    const { title, description, images, technologies } = frontmatter;
+    console.log(images);
     return (
       <div className="project-content">
         <StyledProjectCardGrid>
@@ -193,12 +212,12 @@ const ProjectsPage = ({ data }) => {
             </StyledProjectTitle>
             <p>{description}</p>
 
-            <p>Technologies: {keywords?.length > 0 &&
-            keywords.map((item, i) => (
+            <p>Technologies: {technologies?.length > 0 &&
+            technologies.map((item, i) => (
               <span key={i}>
                 {item}
                 {''}
-                {i !== keywords.length - 1 && (
+                {i !== technologies.length - 1 && (
                   <span className="separator">, </span>
                 )}
               </span>
@@ -228,7 +247,22 @@ const ProjectsPage = ({ data }) => {
               </div>
             </StyledWebHeader>
             <StyledWebContent>
-              <GatsbyImage image={image} alt={title} className="img"/>
+              <Carousel
+                infiniteLoop={true}
+                autoPlay={true}
+                stopOnHover={true}
+                swipeable={false}
+                showArrows={false}
+                showStatus={false}
+                showIndicators={false}
+                showThumbs={false}
+                useKeyboardArrows={false}
+                dynamicHeight={true}
+                animationHandler={'fade'}
+                interval={4000}
+              >
+                {images.map(image => <GatsbyImage key={'carousel-image'} image={getImage(image)} alt={'-'} className="img"/>)}
+              </Carousel>
             </StyledWebContent>
           </StyledProjectCarousel>
         </StyledProjectCardGrid>
@@ -237,11 +271,19 @@ const ProjectsPage = ({ data }) => {
   };
 
   return (
-    <>
+    <StyledProjectsPage>
       <PageTitle
         title="Projects"
         subtitle="Take a look to my featured projects!"
       />
+
+      {/*false && <Lightbox
+        hideDownload={true}
+        hideZoom={true}
+        medium={"./demo.png"}
+        alt="Hello World!"
+      />*/}
+
       <StyledProjectsContainer ref={revealProjectsList} className={prefersReducedMotion ? '' : 'load-hidden'}>
         <ul className="projects-grid">
           {projects && projects.map(({ node }, i) => (
@@ -250,7 +292,7 @@ const ProjectsPage = ({ data }) => {
         </ul>
 
       </StyledProjectsContainer>
-    </>
+    </StyledProjectsPage>
   );
 };
 
@@ -263,20 +305,18 @@ export default ProjectsPage;
 export const pageQuery = graphql`
   {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/content/articles/" } }
+      filter: { fileAbsolutePath: { regex: "/content/projects/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
         node {
           frontmatter {
-            date
             title
-            url
-            keywords
+            technologies
             description
-            thumbnail {
+            images {
               childImageSharp {
-                gatsbyImageData(height: 315, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                gatsbyImageData(aspectRatio:2, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
               }
             }
           }
