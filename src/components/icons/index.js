@@ -11,6 +11,7 @@ export { default as IconLeftRow } from './left-arrow';
 export { default as IconRightRow } from './right-arrow';
 export { default as IconWorldWide } from './world-wide';
 export { default as IconSmallClose } from './small-close';
+export { default as IconDownArrowIndicator } from './down-arrow-indicator';
 export { default as IconClose } from './close';
 export { default as IconReduceScreen } from './reduce-screen';
 export { default as IconMinimize } from './minimize';

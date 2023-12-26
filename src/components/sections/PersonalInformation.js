@@ -135,6 +135,10 @@ const StyledTabPanel = styled.div`
   height: auto;
   padding: 10px 5px;
 
+  .description{
+    font-size: var(--fz-lg);
+  }
+
   .merits {
     ${({ theme }) => theme.mixins.starList};
   }

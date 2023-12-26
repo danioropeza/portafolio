@@ -4,17 +4,22 @@
 - Poner los filtros a una etapa más adelante, categorizar por backend, frontend, devops, soft skils?
 - Ver el tema del SEO y el componente <Head>
 - Cambiar imagen de perfil a 350 pixeles
-- Redactar lo que hay que poner en Work Experience, y evaluar si tecnologias va ahí o en proyectos o en ambos.
+- Agregar un buscador en cada pagina
+- Actualizar librerias
 
 
-- Iconos mas pequeños?
-- Cuando neon, cuando no
-- Borrar los Navys y otros colores ahí sueltos
-- Mi icono
-- Hover de iconos en sidebar menu
-- Color oficial?
-- Arreglar el problema de hover al hacer click en articulos
-- Opitimizar imagen de background y quitar marca de agua
+- Cuando neon, cuando no, Hover de iconos en sidebar menu
 - Refactor de box shadow
+- Mi icono
+- Color oficial?
+
+- Opitimizar imagen de background y quitar marca de agua
+- Carousel con click, src, arreglar problema
+- Analizar la pagina con LightHouse
+- Agregar Title a los iconos
+
+
+- Flecha hacia abajo en About Me
+- About me no tiene titulo en la pagina
 - Importar sin una URL, el font family de Grafiti
-- Remover pensieve, tags, posts
+- Guion, tech stack, external links, redactar lo que hay que poner en Work Experience, y evaluar si tecnologias va ahí o en proyectos o en ambos.

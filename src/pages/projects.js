@@ -202,7 +202,6 @@ const ProjectsPage = ({ data }) => {
   const ProjectContent = node => {
     const { frontmatter } = node;
     const { title, description, images, technologies } = frontmatter;
-    console.log(images);
     return (
       <div className="project-content">
         <StyledProjectCardGrid>
