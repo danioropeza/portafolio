@@ -8,6 +8,7 @@ const IconPersonalBrand = () => (
     height="285.000000pt"
     viewBox="0 0 285.000000 285.000000"
     preserveAspectRatio="xMidYMid meet">
+    <title>Personal Brand Logo</title>
     <g
       transform="translate(0.000000,285.000000) scale(0.100000,-0.100000)"
       fill="#64ffda"

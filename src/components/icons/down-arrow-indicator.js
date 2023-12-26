@@ -3,6 +3,7 @@ import React from 'react';
 const IconDownArrowIndicator = () => (
   <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
 	 viewBox="0 0 511.881 511.881" xmlSpace="preserve">
+    <title>Down Arrow Indicator</title>
     <g>
       <g>
         <g>

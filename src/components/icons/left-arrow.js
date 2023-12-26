@@ -1,9 +1,10 @@
 import React from 'react';
 
-const IconLeftRow = () => (
+const IconLeftArrow = () => (
   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>Left Arrow</title>
     <path d="M5 12H19M5 12L11 6M5 12L11 18" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
-export default IconLeftRow;
+export default IconLeftArrow;

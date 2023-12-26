@@ -7,7 +7,7 @@ import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
 import { PageTitle } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
-import { IconReload, IconLeftRow, IconRightRow, IconClose, IconSmallClose, IconMinimize, IconReduceScreen, IconWorldWide } from '@components/icons';
+import { IconReload, IconLeftArrow, IconRightArrow, IconClose, IconSmallClose, IconMinimize, IconReduceScreen, IconWorldWide } from '@components/icons';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Lightbox } from 'react-modal-image';
@@ -238,8 +238,8 @@ const ProjectsPage = ({ data }) => {
                 </div>
               </div>
               <div className='bottom-web-header'>
-                <IconLeftRow />
-                <IconRightRow />
+                <IconLeftArrow />
+                <IconRightArrow />
                 <IconReload />
                 <div className='bottom-web-header-search'>
                 </div>
