@@ -24,6 +24,8 @@ import SFMonoRegularItalicWoff2 from '@fonts/SFMono/SFMono-RegularItalic.woff2';
 import SFMonoSemiboldItalicWoff from '@fonts/SFMono/SFMono-SemiboldItalic.woff';
 import SFMonoSemiboldItalicWoff2 from '@fonts/SFMono/SFMono-SemiboldItalic.woff2';
 
+import PoloSemiBoldTtf from '@fonts/Polo/Polo-SemiBold.ttf';
+
 const calibreNormalWeights = {
   400: [CalibreRegularWoff, CalibreRegularWoff2],
   500: [CalibreMediumWoff, CalibreMediumWoff2],
@@ -46,6 +48,17 @@ const sfMonoItalicWeights = {
   600: [SFMonoSemiboldItalicWoff, SFMonoSemiboldItalicWoff2],
 };
 
+const poloNormalWeights = {
+  400: [PoloSemiBoldTtf, PoloSemiBoldTtf],
+  500: [PoloSemiBoldTtf, PoloSemiBoldTtf],
+  600: [PoloSemiBoldTtf, PoloSemiBoldTtf],
+};
+
+const poloItalicWeights = {
+  400: [PoloSemiBoldTtf, PoloSemiBoldTtf],
+  600: [PoloSemiBoldTtf, PoloSemiBoldTtf],
+};
+
 const calibre = {
   name: 'Calibre',
   normal: calibreNormalWeights,
@@ -56,6 +69,12 @@ const sfMono = {
   name: 'SF Mono',
   normal: sfMonoNormalWeights,
   italic: sfMonoItalicWeights,
+};
+
+const polo = {
+  name: 'Polo',
+  normal: poloNormalWeights,
+  italic: poloItalicWeights,
 };
 
 const createFontFaces = (family, style = 'normal') => {
@@ -86,8 +105,11 @@ const calibreItalic = createFontFaces(calibre, 'italic');
 const sfMonoNormal = createFontFaces(sfMono);
 const sfMonoItalic = createFontFaces(sfMono, 'italic');
 
+const poloNormal = createFontFaces(polo);
+const poloItalic = createFontFaces(polo, 'italic');
+
 const Fonts = css`
-  ${calibreNormal + calibreItalic + sfMonoNormal + sfMonoItalic}
+  ${calibreNormal + calibreItalic + sfMonoNormal + sfMonoItalic + poloNormal + poloItalic}
 `;
 
 export default Fonts;

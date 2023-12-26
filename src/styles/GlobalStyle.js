@@ -5,7 +5,6 @@ import TransitionStyles from './TransitionStyles';
 import PrismStyles from './PrismStyles';
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.cdnfonts.com/css/polo');
   ${fonts};
   ${variables};
 

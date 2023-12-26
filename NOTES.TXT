@@ -19,7 +19,4 @@
 - Agregar Title a los iconos
 
 
-- Flecha hacia abajo en About Me
-- About me no tiene titulo en la pagina
-- Importar sin una URL, el font family de Grafiti
 - Guion, tech stack, external links, redactar lo que hay que poner en Work Experience, y evaluar si tecnologias va ahí o en proyectos o en ambos.
