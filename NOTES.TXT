@@ -6,11 +6,11 @@
 - Actualizar librerias
 - Analizar la pagina con LightHouse
 - Ver el tema del SEO y el componente <Head>
+- Ver la carpeta static y sus .png
 
 
-- Color oficial?
-- Ver la carpeta de favicons y ver para que sirve
 - Mi icono
+- npm run build no funciona
 
 
 - Guion, tech stack, external links, redactar lo que hay que poner en Work Experience, y evaluar si tecnologias va ahí o en proyectos o en ambos.
