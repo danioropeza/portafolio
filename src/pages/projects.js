@@ -37,6 +37,7 @@ const StyledProject = styled.li`
 
   .project-content {
     display: flex;
+    flex-direction: column;
     position: relative;
     background-color: transparent;
   }
@@ -47,8 +48,10 @@ const StyledProject = styled.li`
       a {
         color: var(--white);
         text-shadow:
-          0 0 21px var(--white),
-          0 0 60px var(--green);
+          0 0 2px var(--white),
+          0 0 10px var(--white),
+          0 0 30px var(--green);
+          0 0 45px var(--green);
       }
     }
   }
@@ -57,8 +60,8 @@ const StyledProject = styled.li`
 const StyledProjectCardGrid = styled.section`
   ${({ theme }) => theme.mixins.resetList};
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-gap: 20px;
+  grid-template-columns: 60% 40%;
+  grid-gap: 0px;
 `;
 
 const StyledProjectDetails = styled.div`
@@ -69,14 +72,15 @@ const StyledProjectDetails = styled.div`
 const StyledProjectTitle = styled.h6`
   margin: 0;
   padding: 0;
-  color: var(--lightest-slate);
-  font-size: var(--fz-heading);
   padding: 0 0 1rem 0;
-
+  font-size: 26px;
+  font-family:  var(--font-polo);
   color: var(--white);
   text-shadow:
-      0 0 10px var(--white),
-      0 0 40px var(--green);
+    0 0 2px var(--white),
+    0 0 10px var(--white),
+    0 0 30px var(--green);
+    0 0 45px var(--green);
 `;
 
 const StyledProjectCarousel = styled.div`
@@ -204,11 +208,11 @@ const ProjectsPage = ({ data }) => {
     const { title, description, images, technologies } = frontmatter;
     return (
       <div className="project-content">
+        <StyledProjectTitle>
+          {title}
+        </StyledProjectTitle>
         <StyledProjectCardGrid>
           <StyledProjectDetails>
-            <StyledProjectTitle>
-              {title}
-            </StyledProjectTitle>
             <p>{description}</p>
 
             <p>Technologies: {technologies?.length > 0 &&

@@ -86,16 +86,14 @@ const NavigationButton = styled(Link)`
   &:hover,
   &:focus-visible {
     color: var(--white);
-    text-shadow:
-      0 0 7px var(--white),
-      0 0 21px var(--white),
-      0 0 42px var(--green),
-      0 0 82px var(--green),
-      0 0 151px var(--green);
+    font-weight: bold;
     outline: none;
+    svg {
+      color: var(--green);
+    }
 
     .navigation-content {
-      transform: translate(10px);
+      transform: translate(15px);
     }
   }
   &:after {

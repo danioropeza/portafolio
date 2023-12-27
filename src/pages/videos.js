@@ -80,6 +80,12 @@ const StyledVideoTitle = styled.h6`
   padding: 1rem 1.2rem;
 
   a {
+    &:hover {
+      color: var(--white);
+      text-shadow:
+            0 0 21px var(--white),
+            0  0 60px var(--green);
+    }
     position: static;
 
     &:before {

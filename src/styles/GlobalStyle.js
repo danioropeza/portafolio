@@ -130,7 +130,7 @@ const GlobalStyle = createGlobalStyle`
   .page-title {
     font-size: clamp(25px, 5vw, 50px);
 
-    font-family:  'Polo', 'Stasiun', 'flottflott', 'Sivar Pro', 'Edu TAS Beginner', sans-serif !important;
+    font-family:  var(--font-polo);
     color: var(--white);
     text-shadow:
         0 0 7px var(--white),
@@ -166,6 +166,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .section-heading {
+    font-family:  var(--font-polo);
     display: flex;
     align-items: center;
     position: relative;
@@ -174,11 +175,23 @@ const GlobalStyle = createGlobalStyle`
     font-size: clamp(26px, 5vw, var(--fz-heading));
     white-space: nowrap;
 
+    color: var(--white);
+    text-shadow:
+        0 0 2px var(--white),
+        0 0 10px var(--white),
+        0 0 30px var(--green);
+        0 0 45px var(--green);
+
     &:before {
       position: relative;
       bottom: 4px;
       margin-right: 10px;
-      color: var(--green);
+      color: var(--white);
+      text-shadow:
+        0 0 2px var(--white),
+        0 0 10px var(--white),
+        0 0 30px var(--green);
+        0 0 45px var(--green);
       font-family: var(--font-mono);
       font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
       font-weight: 400;
@@ -245,15 +258,9 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      svg {
-        color: var(--green);
-      }
-      color: var(--white);
-      text-shadow:
-            0 0 21px var(--white),
-            0 0 60px var(--green);
 
       svg {
+        color: var(--green);
         filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
       }
     }

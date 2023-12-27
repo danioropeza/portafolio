@@ -98,7 +98,8 @@ const mixins = {
 
   smallButton: css`
     color: var(--green);
-    background-color: transparent;
+    text-shadow: none;
+    background-color: var(--black);
     border: 1px solid var(--green);
     border-radius: var(--border-radius);
     padding: 0.75rem 1rem;
@@ -121,7 +122,8 @@ const mixins = {
 
   bigButton: css`
     color: var(--green);
-    background-color: transparent;
+    text-shadow: none;
+    background-color: var(--black);
     border: 1px solid var(--green);
     border-radius: var(--border-radius);
     padding: 1.25rem 1.75rem;

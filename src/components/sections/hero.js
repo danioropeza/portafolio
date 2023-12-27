@@ -94,7 +94,7 @@ ${({ theme }) => theme.mixins.flexCenter};
       color: var(--slate);
       line-height: 0.9;
       font-size: clamp(25px, 5vw, 50px);
-      font-family:  'Polo', 'Stasiun', 'flottflott', 'Sivar Pro', 'Edu TAS Beginner', sans-serif !important;
+      font-family:  var(--font-polo);
     }
 
     .see-projects-button {
