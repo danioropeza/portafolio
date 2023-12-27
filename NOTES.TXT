@@ -13,11 +13,10 @@
 - Analizar la pagina con LightHouse
 
 
+- Ver la carpeta de favicons y ver para que sirve
 - Carousel con click, src, arreglar problema
 - Guion, tech stack, external links, redactar lo que hay que poner en Work Experience, y evaluar si tecnologias va ahí o en proyectos o en ambos.
 
 
-- Cambiar imagen de perfil a 350 pixeles
 - Ver el tema del SEO y el componente <Head>
-- Opitimizar imagen de background y quitar marca de agua
-- Agregar Title a los iconos
+
