@@ -1,17 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-import { IconPersonalBrand } from '@components/icons';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const StyledPersonalBrandLogo = styled.div`
-  color: var(--green);
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: 100px;
+
 }
 `;
 
 const PersonalBrandLogo = () => (
   <StyledPersonalBrandLogo>
-    <IconPersonalBrand />
+    <StaticImage
+      className="img"
+      src="../images/logo.png"
+      quality={100}
+      formats={['AUTO', 'WEBP', 'AVIF']}
+      alt="logo"
+      placeholder="blurred"
+      layout="fixed"
+      width={150}
+    />
   </StyledPersonalBrandLogo>
 );
 

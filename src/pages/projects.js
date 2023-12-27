@@ -7,7 +7,7 @@ import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
 import { PageTitle } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
-import { IconReload, IconLeftArrow, IconRightArrow, IconClose, IconSmallClose, IconMinimize, IconReduceScreen, IconWorldWide } from '@components/icons';
+import { Icon, IconReload, IconLeftArrow, IconRightArrow, IconClose, IconSmallClose, IconMinimize, IconReduceScreen, IconWorldWide } from '@components/icons';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Lightbox } from 'react-modal-image';
@@ -41,20 +41,6 @@ const StyledProject = styled.li`
     position: relative;
     background-color: transparent;
   }
-
-  @media (prefers-reduced-motion: no-preference) {
-    &:hover,
-    &:focus-within {
-      a {
-        color: var(--white);
-        text-shadow:
-          0 0 2px var(--white),
-          0 0 10px var(--white),
-          0 0 30px var(--green);
-          0 0 45px var(--green);
-      }
-    }
-  }
 `;
 
 const StyledProjectCardGrid = styled.section`
@@ -67,6 +53,31 @@ const StyledProjectCardGrid = styled.section`
 const StyledProjectDetails = styled.div`
   color: var(--lightest-slate);
   font-size: var(--fz-md);
+  padding-right: 20px;
+
+  .project-intro {
+    padding-bottom: 10px;
+    span {
+      color: var(--green);
+    }
+  }
+
+  .project-features {
+    ul {
+      ${({ theme }) => theme.mixins.fancyList};
+      font-size: var(--fz-md);
+    }
+  }
+
+  .project-technologies {
+    padding-bottom: 10px;
+    .highlight {
+      color: var(--green);
+    }
+    .separator {
+      margin: 0 5px;
+    }
+  }
 `;
 
 const StyledProjectTitle = styled.h6`
@@ -86,6 +97,20 @@ const StyledProjectTitle = styled.h6`
 const StyledProjectCarousel = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
+  .project-external-links {
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      margin-right: 20px;
+      height: 25px;
+      width: 25px;
+    }
+  }
 `;
 
 
@@ -204,8 +229,17 @@ const ProjectsPage = ({ data }) => {
   }, []);
 
   const ProjectContent = node => {
-    const { frontmatter } = node;
-    const { title, description, images, technologies } = frontmatter;
+    const { frontmatter, html } = node;
+    const {
+      title,
+      images,
+      technologies,
+      awsTechnologies,
+      features,
+      link,
+      github,
+      youtube,
+    } = frontmatter;
     return (
       <div className="project-content">
         <StyledProjectTitle>
@@ -213,26 +247,46 @@ const ProjectsPage = ({ data }) => {
         </StyledProjectTitle>
         <StyledProjectCardGrid>
           <StyledProjectDetails>
-            <p>{description}</p>
-
-            <p>Technologies: {technologies?.length > 0 &&
-            technologies.map((item, i) => (
-              <span key={i}>
-                {item}
-                {''}
-                {i !== technologies.length - 1 && (
-                  <span className="separator">, </span>
-                )}
-              </span>
-            ))
-            }</p>
+            <div className='project-intro' dangerouslySetInnerHTML={{ __html: html }} />
+            <div className='project-features'>
+              <ul>
+                {features && features.map(feature => (<li key="project-feature">{feature}</li>))}
+              </ul>
+            </div>
+            <div className='project-technologies'>
+              <p><span className='highlight'>Technologies:&nbsp;&nbsp;</span>{technologies?.length > 0 &&
+              technologies.map((item, i) => (
+                <span key={i}>
+                  {item}
+                  {''}
+                  {i !== technologies.length - 1 && (
+                    <span className="separator">&middot;</span>
+                  )}
+                </span>
+              ))
+              }</p>
+            </div>
+            <div className='project-technologies'>
+              {awsTechnologies?.length > 0 && (<p><span className='highlight'>AWS Technologies:&nbsp;&nbsp;</span>{
+                awsTechnologies.map((item, i) => (
+                  <span key={i}>
+                    {item}
+                    {''}
+                    {i !== awsTechnologies.length - 1 && (
+                      <span className="separator">&middot;</span>
+                    )}
+                  </span>
+                ))
+              }</p>)
+              }
+            </div>
           </StyledProjectDetails>
           <StyledProjectCarousel>
             <StyledWebHeader>
               <div className='top-web-header'>
                 <div className='tab-web-header'>
                   <IconWorldWide />
-                  <span className='tab-app-name'>Admin Domufix</span>
+                  <span className='tab-app-name'>{title}</span>
                   <IconSmallClose />
                 </div>
                 <div className='options-web-header'>
@@ -267,6 +321,23 @@ const ProjectsPage = ({ data }) => {
                 {images.map(image => <GatsbyImage key={'carousel-image'} image={getImage(image)} alt={'-'} className="img"/>)}
               </Carousel>
             </StyledWebContent>
+            <div className='project-external-links'>
+              {link && (
+                <a href={link} target="_blank" rel="noreferrer" aria-label="External Link">
+                  <Icon name="External" />
+                </a>
+              )}
+              {github && (
+                <a href={github} target="_blank" rel="noreferrer" aria-label="GitHub Link">
+                  <Icon name="GitHub" />
+                </a>
+              )}
+              {youtube && (
+                <a href={youtube} target="_blank" rel="noreferrer" aria-label="Youtube Link">
+                  <Icon name="Youtube" />
+                </a>
+              )}
+            </div>
           </StyledProjectCarousel>
         </StyledProjectCardGrid>
       </div>
@@ -316,7 +387,11 @@ export const pageQuery = graphql`
           frontmatter {
             title
             technologies
-            description
+            awsTechnologies
+            features
+            link
+            github
+            youtube
             images {
               childImageSharp {
                 gatsbyImageData(aspectRatio:2, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])

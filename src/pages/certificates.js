@@ -193,7 +193,7 @@ const CertificatesPage = ({ data }) => {
                     <td className="links">
                       <div>
                         {link && (
-                          <a href={link} aria-label="External Link">
+                          <a href={link} target="_blank" rel="noreferrer" aria-label="External Link">
                             <Icon name="External" />
                           </a>
                         )}
