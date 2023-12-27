@@ -1,22 +1,19 @@
 ** Cosas para resolver **
+- Poner los filtros/buscador a una etapa más adelante, categorizar por backend, frontend, devops, soft skils?
 - Pagina de CERTIFICADOS -> Quitar employed technologies? Agregar descripcion?
 - Pagina de CERTIFICADOS -> Agregar el link de github? [Hacer esto cuando tenga la pagina de proyectos]
-- Poner los filtros/buscador a una etapa más adelante, categorizar por backend, frontend, devops, soft skils?
-- Actualizar librerias
 
+- Actualizar librerias
+- Analizar la pagina con LightHouse
+- Ver el tema del SEO y el componente <Head>
 
 - Cuando neon, cuando no, Hover de iconos en sidebar menu
 - Refactor de box shadow
-- Mi icono
 - Color oficial?
-
-- Analizar la pagina con LightHouse
-
-
+- Mi icono
 - Ver la carpeta de favicons y ver para que sirve
-- Carousel con click, src, arreglar problema
+
+
 - Guion, tech stack, external links, redactar lo que hay que poner en Work Experience, y evaluar si tecnologias va ahí o en proyectos o en ambos.
-
-
-- Ver el tema del SEO y el componente <Head>
+- Carousel con click, src, arreglar problema
 

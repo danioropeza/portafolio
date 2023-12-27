@@ -4,8 +4,8 @@ images:
   - './images/acd-tags.png'
   - './images/audit-history.png'
   - './images/dispositions.png'
-title: 'ACD'
-description: 'This is an explanatory and tutorial article of the best technologies for accessibility linters for Angular applications. By linter we refer to static code analysis. The article is divided into 4 sections: 1.- Evaluating some technologies. 2.- Configuring angular-eslint and html-validate. 3.- Comparison of angular-eslint and html-validate against Axe Accessibility Linter. 4.- Conclusion.'
+title: 'CXONE > ACD'
+description: 'NICE CXone is a cloud-based contact center platform that manages customer interactions across multiple communication channels. It is a world-class contact center, a leader for the eighth consecutive year in the Magic Quadrant for CCaaS in 2022.'
 technologies:
   - .Net
   - AWS

@@ -64,7 +64,7 @@ const StyledTabButton = styled.button`
   ${({ theme }) => theme.mixins.link};
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 130px;
   height: var(--tab-height);
   padding: 0 20px 2px;
   border-left: 2px solid var(--green);
@@ -122,7 +122,7 @@ const StyledHighlight = styled.div`
 
 const StyledTabPanels = styled.div`
   position: relative;
-  width: 750px;
+  width: 100%;
   margin-left: 20px;
 
   @media (max-width: 600px) {
@@ -135,12 +135,13 @@ const StyledTabPanel = styled.div`
   height: auto;
   padding: 10px 5px;
 
-  .description{
-    font-size: var(--fz-lg);
+  .description {
+    font-size: var(--fz-md);
   }
 
   .merits {
     ${({ theme }) => theme.mixins.starList};
+    font-size: var(--fz-md);
   }
 
   .languages {
@@ -186,6 +187,7 @@ const StyledTabPanel = styled.div`
   }
 
   .education {
+    font-size: var(--fz-md);
     .range {
       margin-bottom: 25px;
       color: var(--light-slate);

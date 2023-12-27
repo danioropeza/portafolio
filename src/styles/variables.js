@@ -27,7 +27,7 @@ const variables = css`
     --nav-height: 70px;
     --nav-scroll-height: 70px;
 
-    --sidebar-width: 200px;
+    --sidebar-width: 190px;
 
     --tab-height: 42px;
     --tab-width: 120px;

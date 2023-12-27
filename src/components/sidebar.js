@@ -108,7 +108,7 @@ const SidebarContent = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 90px 50px 100px 350px;
+  padding: 90px 50px 100px 340px;
   background-image: url(${contentBackground});
 `;
 

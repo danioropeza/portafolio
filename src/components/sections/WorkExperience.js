@@ -65,7 +65,7 @@ const StyledTabButton = styled.button`
   ${({ theme }) => theme.mixins.link};
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 130px;
   height: var(--tab-height);
   padding: 0 20px 2px;
   border-left: 2px solid var(--light-black);
@@ -156,6 +156,14 @@ const StyledTabPanel = styled.div`
     color: var(--light-slate);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
+  }
+
+  .work-description {
+    font-size: var(--fz-md);
+
+    p {
+      font-size: var(--fz-md);
+    }
   }
 `;
 
@@ -280,8 +288,9 @@ const WorkExperience = () => {
                     </h3>
 
                     <p className="range">{range}</p>
-
-                    <div dangerouslySetInnerHTML={{ __html: html }} />
+                    <div className='work-description'>
+                      <div dangerouslySetInnerHTML={{ __html: html }} />
+                    </div>
                   </StyledTabPanel>
                 </CSSTransition>
               );
