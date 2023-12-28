@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
 import { PageTitle } from '@components';
+import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledVideosContainer = styled.section`
@@ -80,6 +81,13 @@ const StyledVideoTitle = styled.h6`
   padding: 1rem 1.2rem;
 
   a {
+    svg {
+      margin-bottom: 3px;
+      margin-right: 8px;
+      width: 17px;
+      height: 17px;
+    }
+
     &:hover {
       color: var(--white);
       text-shadow:
@@ -132,6 +140,7 @@ const VideosPage = ({ data }) => {
 
         <StyledVideoTitle>
           <a href={url} target="_blank" rel="noreferrer">
+            <Icon name='Videos' />
             {title}
           </a>
         </StyledVideoTitle>

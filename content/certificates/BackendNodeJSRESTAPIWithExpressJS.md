@@ -5,6 +5,7 @@ link: 'https://platzi.com/p/dani_oropeza/curso/2485-backend-nodejs/diploma/detal
 technologies:
   - NodeJS
   - ExpressJS
+  - PostgreSQL
 issuedBy: 'Platzi'
 ---
 

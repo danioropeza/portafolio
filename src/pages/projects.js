@@ -7,17 +7,7 @@ import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
 import { PageTitle } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
-import {
-  Icon,
-  IconReload,
-  IconLeftArrow,
-  IconRightArrow,
-  IconClose,
-  IconSmallClose,
-  IconMinimize,
-  IconReduceScreen,
-  IconWorldWide,
-} from '@components/icons';
+import { Icon } from '@components/icons';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
@@ -135,6 +125,7 @@ const StyledWebHeader = styled.div`
   border-top-right-radius: 20px;
   height: 50px;
   width: 100%;
+  background-color: var(--black);
 
   svg {
     fill: var(--green);
@@ -183,7 +174,6 @@ const StyledWebHeader = styled.div`
     align-items: center;
     gap: 10px;
     padding-left: 10px;
-    background-color: transparent;
 
     width: 100%;
     height: 50%;
@@ -253,6 +243,7 @@ const StyledMobileHeader = styled.div`
   border-bottom: none;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  background-color: var(--black);
 
   .header-line {
     width: 50%;
@@ -285,6 +276,7 @@ const StyledMobileBottom = styled.div`
   border-top: none;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  background-color: var(--black);
 
   .circle {
     height: 25px;
@@ -421,20 +413,20 @@ const ProjectsPage = ({ data }) => {
               <StyledWebHeader>
                 <div className='top-web-header'>
                   <div className='tab-web-header'>
-                    <IconWorldWide />
+                    <Icon name='WorldWide' />
                     <span className='tab-app-name'>{title}</span>
-                    <IconSmallClose />
+                    <Icon name='SmallClose' />
                   </div>
                   <div className='options-web-header'>
-                    <IconMinimize />
-                    <IconReduceScreen />
-                    <IconClose />
+                    <Icon name='Minimize' />
+                    <Icon name='ReduceScreen' />
+                    <Icon name='Close' />
                   </div>
                 </div>
                 <div className='bottom-web-header'>
-                  <IconLeftArrow />
-                  <IconRightArrow />
-                  <IconReload />
+                  <Icon name='LeftArrow' />
+                  <Icon name='RightArrow' />
+                  <Icon name='Reload' />
                   <div className='bottom-web-header-search'>
                   </div>
                 </div>

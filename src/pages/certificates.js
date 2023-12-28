@@ -166,7 +166,7 @@ const CertificatesPage = ({ data }) => {
           <tbody>
             {certificates.length > 0 &&
               certificates.map(({ node }, i) => {
-                const { date, title, link, technologies, issuedBy } = node.frontmatter;
+                const { date, title, link, github, technologies, issuedBy } = node.frontmatter;
                 return (
                   <tr key={i} ref={el => (revealCertificates.current[i] = el)}>
                     <td className="overline year">{`${new Date(date).getFullYear()}`}</td>
@@ -195,6 +195,11 @@ const CertificatesPage = ({ data }) => {
                         {link && (
                           <a href={link} target="_blank" rel="noreferrer" aria-label="External Link">
                             <Icon name="External" />
+                          </a>
+                        )}
+                        {github && (
+                          <a href={github} target="_blank" rel="noreferrer" aria-label="GitHub Link">
+                            <Icon name="GitHub" />
                           </a>
                         )}
                       </div>
@@ -226,6 +231,7 @@ export const pageQuery = graphql`
             date
             title
             link
+            github
             technologies
             issuedBy
           }

@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import styled, { css }  from 'styled-components';
 import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
-import { IconDownArrowIndicator } from '@components/icons';
+import { Icon } from '@components/icons';
 import { Hero, WorkExperience, PersonalInformation } from '@components';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 
@@ -81,7 +81,7 @@ const AboutMePage = () => {
         ))}
       </div>
       <StyledDownArrow scrollDirection={scrollDirection}>
-        <IconDownArrowIndicator />
+        <Icon name='DownArrowIndicator' />
       </StyledDownArrow>
     </>
   );

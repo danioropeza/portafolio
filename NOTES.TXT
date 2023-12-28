@@ -1,19 +1,12 @@
 ** Cosas para resolver **
 - Poner los filtros/buscador a una etapa más adelante, categorizar por backend, frontend, devops, soft skils?
-- Pagina de CERTIFICADOS -> Agregar el link de github
-
-- npm run build no funciona
 - Actualizar librerias
 - Analizar la pagina con LightHouse
 - Hacer responsive la aplicacion
 - Hacer accesible la aplicacion
 - Ver el tema del SEO y el componente <Head>
-- Ver la carpeta static y sus .png
-
-
-- Mi icono
-
-
+- Ver la carpeta static y sus .png y gatsby config, esto cuando deploye
+- Deployar
+- npm run build no funciona
 - Guion, tech stack, external links, redactar lo que hay que poner en Work Experience, y evaluar si tecnologias va ahí o en proyectos o en ambos.
-- Carousel con click, src, arreglar problema
-
+- Refactor de iconos

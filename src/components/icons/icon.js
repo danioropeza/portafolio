@@ -1,20 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  IconAppStore,
-  IconBookmark,
-  IconCodepen,
   IconExternal,
   IconFolder,
-  IconFork,
   IconGitHub,
-  IconInstagram,
   IconLinkedin,
-  IconLoader,
-  IconPersonalBrand,
-  IconPlayStore,
-  IconStar,
-  IconTwitter,
   IconYoutube,
   IconMedium,
   IconAboutMe,
@@ -24,56 +14,63 @@ import {
   IconCertificates,
   IconEmail,
   IconGallery,
+  IconClose,
+  IconDownArrowIndicator,
+  IconLeftArrow,
+  IconMinimize,
+  IconReduceScreen,
+  IconReload,
+  IconRightArrow,
+  IconSmallClose,
+  IconWorldWide,
 } from '@components/icons';
 
 const Icon = ({ name }) => {
   switch (name) {
-    case 'AppStore':
-      return <IconAppStore />;
-    case 'Bookmark':
-      return <IconBookmark />;
-    case 'Codepen':
-      return <IconCodepen />;
+    case 'AboutMe':
+      return <IconAboutMe />;
+    case 'Articles':
+      return <IconArticles />;
+    case 'Certificates':
+      return <IconCertificates />;
+    case 'Close':
+      return <IconClose />;
+    case 'DownArrowIndicator':
+      return <IconDownArrowIndicator />;
+    case 'Email':
+      return <IconEmail />;
     case 'External':
       return <IconExternal />;
     case 'Folder':
       return <IconFolder />;
-    case 'Fork':
-      return <IconFork />;
-    case 'AboutMe':
-      return <IconAboutMe />;
-    case 'Projects':
-      return <IconProjects />;
-    case 'Articles':
-      return <IconArticles />;
-    case 'Videos':
-      return <IconVideos />;
-    case 'Certificates':
-      return <IconCertificates />;
-    case 'GitHub':
-      return <IconGitHub />;
-    case 'Youtube':
-      return <IconYoutube />;
-    case 'Email':
-      return <IconEmail />;
-    case 'Medium':
-      return <IconMedium />;
-    case 'Instagram':
-      return <IconInstagram />;
-    case 'Linkedin':
-      return <IconLinkedin />;
     case 'Gallery':
       return <IconGallery />;
-    case 'Loader':
-      return <IconLoader />;
-    case 'PersonalBrand':
-      return <IconPersonalBrand />;
-    case 'PlayStore':
-      return <IconPlayStore />;
-    case 'Star':
-      return <IconStar />;
-    case 'Twitter':
-      return <IconTwitter />;
+    case 'GitHub':
+      return <IconGitHub />;
+    case 'LeftArrow':
+      return <IconLeftArrow />;
+    case 'Linkedin':
+      return <IconLinkedin />;
+    case 'Medium':
+      return <IconMedium />;
+    case 'Minimize':
+      return <IconMinimize />;
+    case 'Projects':
+      return <IconProjects />;
+    case 'ReduceScreen':
+      return <IconReduceScreen />;
+    case 'Reload':
+      return <IconReload />;
+    case 'RightArrow':
+      return <IconRightArrow />;
+    case 'SmallClose':
+      return <IconSmallClose />;
+    case 'Videos':
+      return <IconVideos />;
+    case 'WorldWide':
+      return <IconWorldWide />;
+    case 'Youtube':
+      return <IconYoutube />;
     default:
       return <IconExternal />;
   }
