@@ -147,6 +147,7 @@ const StyledTabPanel = styled.div`
   .languages {
 
     .title {
+      margin-bottom: 10px;
       color: var(--lightest-slate);
 
       .details {
@@ -254,19 +255,19 @@ const PersonalInformation = () => {
       title: 'Languages',
       content: (
         <div className='languages'>
-          <p className='title'>
+          <div className='title'>
             Spanish:
             <div className='level-container'>
               <div className='spanish-level'></div>
             </div>
             <span className='details'>Native</span>
-          </p>
-          <p className='title'>
+          </div>
+          <div className='title'>
             English: <div className='level-container'>
               <div className='english-level'></div>
             </div>
             <span className='details'>B2 Intermediate-High</span>
-          </p>
+          </div>
         </div>
       ),
     },

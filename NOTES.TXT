@@ -1,5 +1,6 @@
 ** Cosas para resolver **
 - Poner los filtros/buscador a una etapa más adelante, categorizar por backend, frontend, devops, soft skils?
+- Feedback de usuarios
 - Actualizar librerias
 - Analizar la pagina con LightHouse
 - Hacer responsive la aplicacion
@@ -9,4 +10,8 @@
 - Deployar
 - npm run build no funciona
 - Guion, tech stack, external links, redactar lo que hay que poner en Work Experience, y evaluar si tecnologias va ahí o en proyectos o en ambos.
-- Refactor de iconos
+
+
+Cuestionantes
+
+Sección de tech stack y años de experiencia?

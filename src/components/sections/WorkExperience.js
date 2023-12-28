@@ -161,8 +161,15 @@ const StyledTabPanel = styled.div`
   .work-description {
     font-size: var(--fz-md);
 
-    p {
+    span {
+      color: var(--green);
+    }
+
+    p, li {
       font-size: var(--fz-md);
+    }
+    ul {
+      padding-top: 15px;
     }
   }
 `;

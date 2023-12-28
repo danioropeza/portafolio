@@ -6,8 +6,8 @@ location: 'Cochabamba, Bolivia'
 range: 'July - October 2019'
 url: 'https://truextend.com/'
 ---
+As a <span>full-stack developer</span> at Truextend, part of my key responsibilities were:
 
-- Technologies that I used: ReactJS, React Redux, Redux-Saga, Semantic-UI, Spring Boot, Hibernate, Swagger, GitLab, Git.
 - Development / BugFixing of web applications and API REST Backends.
 - Participation in Sprint Planning, Retrospective, Grooming and Daily Scrum.
 - Software development using good practices such as clean code, refactoring, exception handling and documentation.
