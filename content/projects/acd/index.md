@@ -28,6 +28,7 @@ awsTechnologies:
 link: 'https://www.nice.com/websites/CXone-AUS/'
 github: ''
 youtube: ''
+isMobile: false
 ---
 
 NICE CXone is a cloud-based contact center platform that manages customer interactions across multiple communication channels. It is a world-class contact center, a leader for the eighth consecutive year in the Magic Quadrant for CCaaS in 2022. Our customers include 85 of the Fortune 100 and we handle over 6 billion interactions a year and over 200,000 agents in the cloud. This <span>huge product</span> is maintained by over 90+ teams, with each team being the owner of a specific part of the product.

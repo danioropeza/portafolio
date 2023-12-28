@@ -40,6 +40,7 @@ awsTechnologies:
 link: ''
 github: ''
 youtube: 'https://www.youtube.com/playlist?list=PLVIMIbZXJLekBilYs0Z8GDW2OZZF0XTHv'
+isMobile: false
 ---
 
 Admin Domusfix is a web application responsible for managing resources and business logic for independent workers using the Domusfix app.

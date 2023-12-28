@@ -12,6 +12,20 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Lightbox } from 'react-modal-image';
 
+const StyledProjectsPage = styled.div`
+  .__react_modal_image__modal_content {
+    img {
+      max-height: 600px;
+      max-width: 600px;
+    }
+  }
+
+  img[alt=""],
+  img:not([alt]) {
+    filter: none;
+  }
+`;
+
 const StyledProjectsContainer = styled.section`
   display: flex;
   flex-direction: column;
@@ -94,7 +108,7 @@ const StyledProjectTitle = styled.h6`
     0 0 45px var(--green);
 `;
 
-const StyledProjectCarousel = styled.div`
+const StyledWebCarousel = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -199,17 +213,80 @@ const StyledWebContent = styled.div`
       z-index: 0 !important;
   }
 `;
-const StyledProjectsPage = styled.div`
-  .__react_modal_image__modal_content {
-    img {
-      max-height: 600px;
-      max-width: 600px;
+
+const StyledMobileCarousel = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .project-external-links {
+    padding-right: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      margin-bottom: 30px;
+      height: 25px !important;
+      width: 25px !important;
     }
   }
+`;
 
-  img[alt=""],
-  img:not([alt]) {
-    filter: none;
+const StyledMobileContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+const StyledMobileHeader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  max-width: 100%;
+  border: 3px solid var(--green);
+  border-bottom: none;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  .header-line {
+    width: 50%;
+    height: 10px;
+    background-color: var(--green);
+    border-radius: 20px;
+  }
+`;
+
+const StyledMobileContent = styled.div`
+  border: 3px solid var(--green);
+  max-width: 225px;
+
+  .img {
+    max-width: 225px;
+  }
+
+  .carousel.carousel-slider li.slide.selected {
+      z-index: 0 !important;
+  }
+`;
+
+const StyledMobileBottom = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  max-width: 100%;
+  border: 3px solid var(--green);
+  border-top: none;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+  .circle {
+    height: 25px;
+    width: 25px;
+    background-color: var(--green);
+    border-radius: 50%;
+    display: inline-block;
   }
 `;
 
@@ -239,6 +316,7 @@ const ProjectsPage = ({ data }) => {
       link,
       github,
       youtube,
+      isMobile,
     } = frontmatter;
     return (
       <div className="project-content">
@@ -281,64 +359,112 @@ const ProjectsPage = ({ data }) => {
               }
             </div>
           </StyledProjectDetails>
-          <StyledProjectCarousel>
-            <StyledWebHeader>
-              <div className='top-web-header'>
-                <div className='tab-web-header'>
-                  <IconWorldWide />
-                  <span className='tab-app-name'>{title}</span>
-                  <IconSmallClose />
-                </div>
-                <div className='options-web-header'>
-                  <IconMinimize />
-                  <IconReduceScreen />
-                  <IconClose />
-                </div>
+          {isMobile ? (
+            <StyledMobileCarousel>
+              <div className='project-external-links'>
+                {link && (
+                  <a href={link} target="_blank" rel="noreferrer" aria-label="External Link">
+                    <Icon name="External" />
+                  </a>
+                )}
+                {github && (
+                  <a href={github} target="_blank" rel="noreferrer" aria-label="GitHub Link">
+                    <Icon name="GitHub" />
+                  </a>
+                )}
+                {youtube && (
+                  <a href={youtube} target="_blank" rel="noreferrer" aria-label="Youtube Link">
+                    <Icon name="Youtube" />
+                  </a>
+                )}
               </div>
-              <div className='bottom-web-header'>
-                <IconLeftArrow />
-                <IconRightArrow />
-                <IconReload />
-                <div className='bottom-web-header-search'>
+              <StyledMobileContainer>
+                <StyledMobileHeader>
+                  <div className='header-line'></div>
+                </StyledMobileHeader>
+                <StyledMobileContent>
+                  <Carousel
+                    infiniteLoop={true}
+                    autoPlay={true}
+                    stopOnHover={true}
+                    swipeable={false}
+                    showArrows={false}
+                    showStatus={false}
+                    showIndicators={false}
+                    showThumbs={false}
+                    useKeyboardArrows={false}
+                    dynamicHeight={true}
+                    animationHandler={'fade'}
+                    interval={4000}
+                  >
+                    {images.map(image => <GatsbyImage key={'carousel-image'} image={getImage(image)} alt={'-'} className="img"/>)}
+                  </Carousel>
+                </StyledMobileContent>
+                <StyledMobileBottom>
+                  <div className='circle'></div>
+                </StyledMobileBottom>
+              </StyledMobileContainer>
+            </StyledMobileCarousel>
+          ) : (
+            <StyledWebCarousel>
+              <StyledWebHeader>
+                <div className='top-web-header'>
+                  <div className='tab-web-header'>
+                    <IconWorldWide />
+                    <span className='tab-app-name'>{title}</span>
+                    <IconSmallClose />
+                  </div>
+                  <div className='options-web-header'>
+                    <IconMinimize />
+                    <IconReduceScreen />
+                    <IconClose />
+                  </div>
                 </div>
+                <div className='bottom-web-header'>
+                  <IconLeftArrow />
+                  <IconRightArrow />
+                  <IconReload />
+                  <div className='bottom-web-header-search'>
+                  </div>
+                </div>
+              </StyledWebHeader>
+              <StyledWebContent>
+                <Carousel
+                  infiniteLoop={true}
+                  autoPlay={true}
+                  stopOnHover={true}
+                  swipeable={false}
+                  showArrows={false}
+                  showStatus={false}
+                  showIndicators={false}
+                  showThumbs={false}
+                  useKeyboardArrows={false}
+                  dynamicHeight={true}
+                  animationHandler={'fade'}
+                  interval={4000}
+                >
+                  {images.map(image => <GatsbyImage key={'carousel-image'} image={getImage(image)} alt={'-'} className="img"/>)}
+                </Carousel>
+              </StyledWebContent>
+              <div className='project-external-links'>
+                {link && (
+                  <a href={link} target="_blank" rel="noreferrer" aria-label="External Link">
+                    <Icon name="External" />
+                  </a>
+                )}
+                {github && (
+                  <a href={github} target="_blank" rel="noreferrer" aria-label="GitHub Link">
+                    <Icon name="GitHub" />
+                  </a>
+                )}
+                {youtube && (
+                  <a href={youtube} target="_blank" rel="noreferrer" aria-label="Youtube Link">
+                    <Icon name="Youtube" />
+                  </a>
+                )}
               </div>
-            </StyledWebHeader>
-            <StyledWebContent>
-              <Carousel
-                infiniteLoop={true}
-                autoPlay={true}
-                stopOnHover={true}
-                swipeable={false}
-                showArrows={false}
-                showStatus={false}
-                showIndicators={false}
-                showThumbs={false}
-                useKeyboardArrows={false}
-                dynamicHeight={true}
-                animationHandler={'fade'}
-                interval={4000}
-              >
-                {images.map(image => <GatsbyImage key={'carousel-image'} image={getImage(image)} alt={'-'} className="img"/>)}
-              </Carousel>
-            </StyledWebContent>
-            <div className='project-external-links'>
-              {link && (
-                <a href={link} target="_blank" rel="noreferrer" aria-label="External Link">
-                  <Icon name="External" />
-                </a>
-              )}
-              {github && (
-                <a href={github} target="_blank" rel="noreferrer" aria-label="GitHub Link">
-                  <Icon name="GitHub" />
-                </a>
-              )}
-              {youtube && (
-                <a href={youtube} target="_blank" rel="noreferrer" aria-label="Youtube Link">
-                  <Icon name="Youtube" />
-                </a>
-              )}
-            </div>
-          </StyledProjectCarousel>
+            </StyledWebCarousel>
+          )}
         </StyledProjectCardGrid>
       </div>
     );
@@ -391,10 +517,11 @@ export const pageQuery = graphql`
             features
             link
             github
+            isMobile
             youtube
             images {
               childImageSharp {
-                gatsbyImageData(aspectRatio:2, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
               }
             }
           }

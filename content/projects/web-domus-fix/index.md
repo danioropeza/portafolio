@@ -35,6 +35,7 @@ awsTechnologies:
 link: ''
 github: ''
 youtube: 'https://www.youtube.com/playlist?list=PLVIMIbZXJLekBilYs0Z8GDW2OZZF0XTHv'
+isMobile: true
 ---
 
 Web Domusfix is a responsive application designed under the mobile-first concept, which aims to extend functionalities to the Domusfix mobile application. As a general purpose, it helps in the search and hiring of independent workers in the city of Cochabamba.
