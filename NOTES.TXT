@@ -7,10 +7,11 @@
 - Hacer accesible la aplicacion
 - Ver el tema del SEO y el componente <Head>
 - Ver la carpeta static y sus .png y gatsby config, esto cuando deploye
-- Deployar
-- npm run build no funciona
+
+
 - Guion, tech stack, external links, redactar lo que hay que poner en Work Experience, y evaluar si tecnologias va ahí o en proyectos o en ambos.
 
+- Poner las versiones que eestoy usando de npm, node, etc
 
 Cuestionantes
 

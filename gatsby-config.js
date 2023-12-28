@@ -5,18 +5,25 @@ module.exports = {
     title: 'Daniel Oropeza',
     description:
       'Daniel Oropeza is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences.',
-    siteUrl: 'https://danioropezasoria.com', // No trailing slash allowed!
+    siteUrl: 'http://localhost', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@danioropeza',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
