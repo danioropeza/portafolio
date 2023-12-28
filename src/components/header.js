@@ -7,7 +7,7 @@ import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 import { Icon } from '@components/icons';
 
 const StyledHeaderWrapper = styled.header`
-  ${({ theme }) => theme.mixins.flexEnd};
+  ${({ theme }) => theme.mixins?.flexEnd};
   position: absolute;
   top: 0;
   z-index: 11;
@@ -27,7 +27,7 @@ const StyledHeaderWrapper = styled.header`
 `;
 
 const StyledHeaderContent = styled.nav`
-  ${({ theme }) => theme.mixins.flexEnd};
+  ${({ theme }) => theme.mixins?.flexEnd};
   position: relative;
   width: 100%;
   color: var(--lightest-slate);
@@ -60,7 +60,7 @@ const StyledSocialList = styled.ul`
   }
 
   .resume-button {
-    ${({ theme }) => theme.mixins.smallButton};
+    ${({ theme }) => theme.mixins?.smallButton};
     margin-left: 15px;
     font-size: var(--fz-xs);
   }

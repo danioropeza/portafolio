@@ -9,7 +9,7 @@ import { Layout } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledMainContainer = styled.main`
-  ${({ theme }) => theme.mixins.flexCenter};
+  ${({ theme }) => theme.mixins?.flexCenter};
   flex-direction: column;
 `;
 const StyledTitle = styled.h1`
@@ -23,7 +23,7 @@ const StyledSubtitle = styled.h2`
   font-weight: 400;
 `;
 const StyledHomeButton = styled(Link)`
-  ${({ theme }) => theme.mixins.bigButton};
+  ${({ theme }) => theme.mixins?.bigButton};
   margin-top: 40px;
 `;
 

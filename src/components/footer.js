@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
-  ${({ theme }) => theme.mixins.flexCenter};
+  ${({ theme }) => theme.mixins?.flexCenter};
   flex-direction: column;
   height: auto;
   min-height: 70px;

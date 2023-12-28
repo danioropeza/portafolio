@@ -14,7 +14,7 @@ const StyledArticlesContainer = styled.section`
   align-items: stretch;
 
   .articles-grid {
-    ${({ theme }) => theme.mixins.resetList};
+    ${({ theme }) => theme.mixins?.resetList};
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     grid-gap: 25px;
@@ -66,7 +66,7 @@ const StyledArticle = styled.li`
 `;
 
 const StyledArticleCardGrid = styled.section`
-  ${({ theme }) => theme.mixins.resetList};
+  ${({ theme }) => theme.mixins?.resetList};
   display: grid;
   grid-template-columns: 70% 30%;
   grid-gap: 0;

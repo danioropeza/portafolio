@@ -17,7 +17,7 @@ const StyledProjectsContainer = styled.section`
   align-items: stretch;
 
   .projects-grid {
-    ${({ theme }) => theme.mixins.resetList};
+    ${({ theme }) => theme.mixins?.resetList};
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(1000px, 1fr));
     grid-gap: 50px;
@@ -43,7 +43,7 @@ const StyledProject = styled.li`
 `;
 
 const StyledProjectCardGrid = styled.section`
-  ${({ theme }) => theme.mixins.resetList};
+  ${({ theme }) => theme.mixins?.resetList};
   display: grid;
   grid-template-columns: 60% 40%;
   grid-gap: 0px;
@@ -63,7 +63,7 @@ const StyledProjectDetails = styled.div`
 
   .project-features {
     ul {
-      ${({ theme }) => theme.mixins.fancyList};
+      ${({ theme }) => theme.mixins?.fancyList};
       font-size: var(--fz-md);
     }
   }

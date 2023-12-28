@@ -62,7 +62,7 @@ const StyledTabList = styled.div`
 `;
 
 const StyledTabButton = styled.button`
-  ${({ theme }) => theme.mixins.link};
+  ${({ theme }) => theme.mixins?.link};
   display: flex;
   align-items: center;
   width: 130px;
@@ -80,7 +80,7 @@ const StyledTabButton = styled.button`
     padding: 0 15px 2px;
   }
   @media (max-width: 600px) {
-    ${({ theme }) => theme.mixins.flexCenter};
+    ${({ theme }) => theme.mixins?.flexCenter};
     min-width: 120px;
     padding: 0 15px;
     border-left: 0;
@@ -137,7 +137,7 @@ const StyledTabPanel = styled.div`
   padding: 10px 5px;
 
   ul {
-    ${({ theme }) => theme.mixins.fancyList};
+    ${({ theme }) => theme.mixins?.fancyList};
   }
 
   h3 {

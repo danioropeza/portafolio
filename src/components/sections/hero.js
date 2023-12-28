@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
 const StyledHeroSection = styled.section`
-${({ theme }) => theme.mixins.flexCenter};
+${({ theme }) => theme.mixins?.flexCenter};
   padding: 0;
   margin-top: -70px;
   flex-direction: row;
@@ -99,7 +99,7 @@ ${({ theme }) => theme.mixins.flexCenter};
 
     .see-projects-button {
       margin: 30px 0 0 4px;
-      ${({ theme }) => theme.mixins.bigButton};
+      ${({ theme }) => theme.mixins?.bigButton};
       font-size: var(--fz-xs);
     }
   }

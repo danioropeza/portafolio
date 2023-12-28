@@ -155,7 +155,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a {
-      ${({ theme }) => theme.mixins.inlineLink};
+      ${({ theme }) => theme.mixins?.inlineLink};
       line-height: 1.5;
     }
   }
@@ -266,7 +266,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     &.inline-link {
-      ${({ theme }) => theme.mixins.inlineLink};
+      ${({ theme }) => theme.mixins?.inlineLink};
     }
   }
 
@@ -300,7 +300,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     & > a {
-      ${({ theme }) => theme.mixins.inlineLink};
+      ${({ theme }) => theme.mixins?.inlineLink};
     }
 
     & > code {
@@ -385,7 +385,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a {
-      ${({ theme }) => theme.mixins.inlineLink};
+      ${({ theme }) => theme.mixins?.inlineLink};
       font-family: var(--font-mono);
       font-size: var(--fz-sm);
       font-weight: 600;

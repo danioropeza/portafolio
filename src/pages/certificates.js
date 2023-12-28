@@ -115,7 +115,7 @@ const StyledTableContainer = styled.div`
           align-items: center;
 
           a {
-            ${({ theme }) => theme.mixins.flexCenter};
+            ${({ theme }) => theme.mixins?.flexCenter};
             flex-shrink: 0;
           }
 

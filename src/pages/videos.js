@@ -15,7 +15,7 @@ const StyledVideosContainer = styled.section`
   align-items: stretch;
 
   .videos-grid {
-    ${({ theme }) => theme.mixins.resetList};
+    ${({ theme }) => theme.mixins?.resetList};
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 25px;
@@ -42,7 +42,7 @@ const StyledVideo = styled.li`
   }
 
   .video-content {
-    ${({ theme }) => theme.mixins.flexBetween};
+    ${({ theme }) => theme.mixins?.flexBetween};
     flex-direction: column;
     align-items: flex-start;
     position: relative;
