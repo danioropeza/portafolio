@@ -7,24 +7,19 @@ import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
 import { PageTitle } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
-import { Icon, IconReload, IconLeftArrow, IconRightArrow, IconClose, IconSmallClose, IconMinimize, IconReduceScreen, IconWorldWide } from '@components/icons';
+import {
+  Icon,
+  IconReload,
+  IconLeftArrow,
+  IconRightArrow,
+  IconClose,
+  IconSmallClose,
+  IconMinimize,
+  IconReduceScreen,
+  IconWorldWide,
+} from '@components/icons';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Lightbox } from 'react-modal-image';
-
-const StyledProjectsPage = styled.div`
-  .__react_modal_image__modal_content {
-    img {
-      max-height: 600px;
-      max-width: 600px;
-    }
-  }
-
-  img[alt=""],
-  img:not([alt]) {
-    filter: none;
-  }
-`;
 
 const StyledProjectsContainer = styled.section`
   display: flex;
@@ -114,15 +109,20 @@ const StyledWebCarousel = styled.div`
   justify-content: center;
 
   .project-external-links {
-    padding-top: 15px;
+    padding-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 
     svg {
+      transition: var(--transition);
       margin-right: 20px;
       height: 25px;
       width: 25px;
+
+      &:hover {
+        transform: translateY(-7px);
+      }
     }
   }
 `;
@@ -227,9 +227,14 @@ const StyledMobileCarousel = styled.div`
     align-items: center;
 
     svg {
+      transition: var(--transition);
       margin-bottom: 30px;
       height: 25px !important;
       width: 25px !important;
+
+      &:hover {
+        transform: translateY(-7px);
+      }
     }
   }
 `;
@@ -316,6 +321,7 @@ const ProjectsPage = ({ data }) => {
       link,
       github,
       youtube,
+      gallery,
       isMobile,
     } = frontmatter;
     return (
@@ -375,6 +381,11 @@ const ProjectsPage = ({ data }) => {
                 {youtube && (
                   <a href={youtube} target="_blank" rel="noreferrer" aria-label="Youtube Link">
                     <Icon name="Youtube" />
+                  </a>
+                )}
+                {gallery && (
+                  <a href={gallery} target="_blank" rel="noreferrer" aria-label="Gallery Link">
+                    <Icon name="Gallery" />
                   </a>
                 )}
               </div>
@@ -462,6 +473,11 @@ const ProjectsPage = ({ data }) => {
                     <Icon name="Youtube" />
                   </a>
                 )}
+                {gallery && (
+                  <a href={gallery} target="_blank" rel="noreferrer" aria-label="Gallery Link">
+                    <Icon name="Gallery" />
+                  </a>
+                )}
               </div>
             </StyledWebCarousel>
           )}
@@ -471,18 +487,11 @@ const ProjectsPage = ({ data }) => {
   };
 
   return (
-    <StyledProjectsPage>
+    <>
       <PageTitle
         title="Projects"
         subtitle="Take a look to my featured projects!"
       />
-
-      {/*false && <Lightbox
-        hideDownload={true}
-        hideZoom={true}
-        medium={"./demo.png"}
-        alt="Hello World!"
-      />*/}
 
       <StyledProjectsContainer ref={revealProjectsList} className={prefersReducedMotion ? '' : 'load-hidden'}>
         <ul className="projects-grid">
@@ -492,7 +501,7 @@ const ProjectsPage = ({ data }) => {
         </ul>
 
       </StyledProjectsContainer>
-    </StyledProjectsPage>
+    </>
   );
 };
 
@@ -519,6 +528,7 @@ export const pageQuery = graphql`
             github
             isMobile
             youtube
+            gallery
             images {
               childImageSharp {
                 gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])

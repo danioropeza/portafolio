@@ -28,6 +28,7 @@ awsTechnologies:
 link: 'https://www.nice.com/websites/CXone-AUS/'
 github: ''
 youtube: ''
+gallery: 'https://drive.google.com/drive/folders/1X4Q2Nx2KEwNyDOTh3XqiGgMTqA9uZZCd?usp=sharing'
 isMobile: false
 ---
 

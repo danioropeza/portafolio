@@ -40,6 +40,7 @@ awsTechnologies:
 link: ''
 github: ''
 youtube: 'https://www.youtube.com/playlist?list=PLVIMIbZXJLekBilYs0Z8GDW2OZZF0XTHv'
+gallery: 'https://drive.google.com/drive/folders/1KsDd3Cogow_4hmkj4ly3hF-RT684AbIa?usp=sharing'
 isMobile: false
 ---
 

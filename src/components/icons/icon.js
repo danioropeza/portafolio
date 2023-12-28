@@ -23,6 +23,7 @@ import {
   IconProjects,
   IconCertificates,
   IconEmail,
+  IconGallery,
 } from '@components/icons';
 
 const Icon = ({ name }) => {
@@ -61,6 +62,8 @@ const Icon = ({ name }) => {
       return <IconInstagram />;
     case 'Linkedin':
       return <IconLinkedin />;
+    case 'Gallery':
+      return <IconGallery />;
     case 'Loader':
       return <IconLoader />;
     case 'PersonalBrand':
