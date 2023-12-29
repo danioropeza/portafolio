@@ -155,6 +155,11 @@ const StyledTabPanel = styled.div`
         margin-left: 10px;
         color: var(--slate);
         font-size: var(--fz-md);
+
+        @media (max-width: 768px) {
+          margin-left: 0;
+          display: block
+        }
       }
 
       .level-container {

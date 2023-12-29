@@ -29,6 +29,11 @@ const SidebarMenu = styled.div`
       0 0 32px var(--green);
   border-top-right-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
+
+
+  @media (max-width: 1080px) {
+    display: none;
+  }
 `;
 
 const SidebarMenuList = styled.ul`
@@ -107,6 +112,10 @@ const SidebarContent = styled.div`
   flex-direction: column;
   min-height: 100vh;
   padding: 90px 50px 100px 340px;
+
+  @media (max-width: 1080px) {
+    padding: 90px 35px 35px 35px;
+  }
   background-image: url(${contentBackground});
 `;
 

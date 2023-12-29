@@ -7,7 +7,11 @@ import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
 
 const StyledPageTitle = styled.div`
-  margin-bottom: 100px;
+  margin-bottom: 50px;
+
+  @media (max-width: 1080px) {
+    margin-bottom: 20px;
+  }
 `;
 
 const PageTitle = ({ title, subtitle }) => {

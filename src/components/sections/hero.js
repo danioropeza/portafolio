@@ -6,15 +6,20 @@ import { StaticImage } from 'gatsby-plugin-image';
 const StyledHeroSection = styled.section`
 ${({ theme }) => theme.mixins?.flexCenter};
   padding: 0;
-  margin-top: -70px;
   flex-direction: row;
   justify-content: flex-start;
+  min-height: calc(100vh - 92px);
   gap: 100px;
-  min-height: 100vh;
-  height: 100vh;
 
-  @media (max-height: 700px) and (min-width: 700px), (max-width: 360px) {
-    height: auto;
+  @media (max-width: 1080px) {
+    gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
   }
 
   .hero-photo {
@@ -40,6 +45,12 @@ ${({ theme }) => theme.mixins?.flexCenter};
     }
 
     .img {
+
+
+      @media (max-width: 768px) {
+        width: 200px !important;
+        height: 200px !important;
+      }
       position: relative;
       border-radius: var(--border-radius);
       mix-blend-mode: multiply;
@@ -99,8 +110,8 @@ ${({ theme }) => theme.mixins?.flexCenter};
 
     .see-projects-button {
       margin: 30px 0 0 4px;
-      ${({ theme }) => theme.mixins?.bigButton};
       font-size: var(--fz-xs);
+      ${({ theme }) => theme.mixins?.bigButton};
     }
   }
 `;
@@ -130,8 +141,6 @@ const Hero = () => {
           alt="Daniel Oropeza"
           placeholder="blurred"
           layout="fixed"
-          width={325}
-          height={325}
         />
       </div>
     </StyledHeroSection>

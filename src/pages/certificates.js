@@ -11,9 +11,6 @@ import { usePrefersReducedMotion } from '@hooks';
 const StyledTableContainer = styled.div`
   margin: 0 -20px 0 -20px;
 
-  @media (max-width: 768px) {
-    margin: 50px -10px;
-  }
 
   table {
     width: 100%;
@@ -39,17 +36,9 @@ const StyledTableContainer = styled.div`
 
       &:first-child {
         padding-left: 20px;
-
-        @media (max-width: 768px) {
-          padding-left: 10px;
-        }
       }
       &:last-child {
         padding-right: 20px;
-
-        @media (max-width: 768px) {
-          padding-right: 10px;
-        }
       }
 
       svg {
@@ -76,7 +65,6 @@ const StyledTableContainer = styled.div`
         padding-right: 20px;
 
         @media (max-width: 768px) {
-          padding-right: 10px;
           font-size: var(--fz-sm);
         }
       }
@@ -88,6 +76,10 @@ const StyledTableContainer = styled.div`
         font-size: var(--fz-xl);
         font-weight: 600;
         line-height: 1.25;
+
+        @media (max-width: 768px) {
+          font-size: var(--fz-sm);
+        }
       }
 
       &.issued-by {
@@ -195,6 +187,11 @@ const CertificatesPage = ({ data }) => {
                         {link && (
                           <a href={link} target="_blank" rel="noreferrer" aria-label="External Link">
                             <Icon name="External" />
+                          </a>
+                        )}
+                        {github && (
+                          <a href={github} target="_blank" rel="noreferrer" aria-label="GitHub Link">
+                            <Icon name="GitHub" />
                           </a>
                         )}
                         {github && (

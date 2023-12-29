@@ -80,6 +80,11 @@ const StyledVideoTitle = styled.h6`
   font-size: var(--fz-md);
   padding: 1rem 1.2rem;
 
+
+  @media (max-width: 768px) {
+    font-size: var(--fz-sm);
+  }
+
   a {
     svg {
       margin-bottom: 3px;

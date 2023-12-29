@@ -129,7 +129,6 @@ const GlobalStyle = createGlobalStyle`
 
   .page-title {
     font-size: clamp(25px, 5vw, 50px);
-
     font-family:  var(--font-polo);
     color: var(--white);
     text-shadow:
@@ -142,16 +141,16 @@ const GlobalStyle = createGlobalStyle`
 
   .page-subtitle {
     color: var(--green);
-    font-size: var(--fz-md);
     font-family: var(--font-mono);
     font-weight: 400;
     line-height: 1.5;
+    font-size: var(--fz-md);
 
     @media (max-width: 1080px) {
       font-size: var(--fz-sm);
     }
     @media (max-width: 768px) {
-      font-size: var(--fz-xs);
+      font-size: var(--fz-xxs);
     }
 
     a {
