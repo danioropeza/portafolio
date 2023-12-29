@@ -13,3 +13,5 @@ As a <span>full-stack developer</span> at Truextend, part of my key responsibili
 - Software development using good practices such as clean code, refactoring, exception handling and documentation.
 - Preparation of development environments from scratch.
 - Participation in weekly trainings.
+
+<span>Tecnologies:&nbsp;</span> ReactJS, React Redux, Redux-Saga, Semantic-UI, Spring Boot, Hibernate, Swagger, GitLab, Git.

@@ -34,7 +34,7 @@ const PageTitle = ({ title, subtitle }) => {
       </header>
     </StyledPageTitle>
   );
-}
+};
 PageTitle.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,

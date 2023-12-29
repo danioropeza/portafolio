@@ -169,7 +169,7 @@ const StyledTabPanel = styled.div`
       font-size: var(--fz-md);
     }
     ul {
-      padding-top: 15px;
+      padding-bottom: 8px;
     }
   }
 `;

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { KEY_CODES } from '@utils';
 
 const StyledPersonalInformationSection = styled.section`
+  padding-top: 30px;
   .inner {
     display: flex;
 

@@ -103,10 +103,10 @@ const StyledWebCarousel = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 
     svg {
       transition: var(--transition);
-      margin-right: 20px;
       height: 25px;
       width: 25px;
 
@@ -215,10 +215,10 @@ const StyledMobileCarousel = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 
     svg {
       transition: var(--transition);
-      margin-bottom: 30px;
       height: 25px !important;
       width: 25px !important;
 
@@ -400,7 +400,7 @@ const ProjectsPage = ({ data }) => {
                     animationHandler={'fade'}
                     interval={4000}
                   >
-                    {images.map(image => <GatsbyImage key={'carousel-image'} image={getImage(image)} alt={'-'} className="img"/>)}
+                    {images.map(image => <GatsbyImage key={'carousel-image'} image={getImage(image)} alt={'project-screenshot'} className="img"/>)}
                   </Carousel>
                 </StyledMobileContent>
                 <StyledMobileBottom>
