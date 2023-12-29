@@ -4,7 +4,7 @@
 
 import { useState, useEffect } from 'react';
 const NO_PREFERENCE_QUERY = '(prefers-reduced-motion: no-preference)';
-const IS_MOBILE_QUERY = '(max-width: 700px)';
+const IS_MOBILE_QUERY = '(max-width: 1080px)';
 const isRenderingOnServer = typeof window === 'undefined';
 
 // For our initial server render, we won't know if the user
@@ -19,7 +19,7 @@ function usePrefersReducedMotion() {
   useEffect(() => {
     const checkNoPreference = window.matchMedia(NO_PREFERENCE_QUERY);
     const checkIsMobile = window.matchMedia(IS_MOBILE_QUERY);
-    
+
     const listenerNoPreferece = event => {
       setPrefersReducedMotion(!event.matches);
     };

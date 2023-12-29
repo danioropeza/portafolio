@@ -11,10 +11,15 @@ ${({ theme }) => theme.mixins?.flexCenter};
   min-height: calc(100vh - 92px);
   gap: 100px;
 
-  @media (max-width: 1080px) {
-    gap: 20px;
+  @media (max-width: 1440px) {
+    gap: 40px;
   }
-
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
   @media (max-width: 768px) {
     flex-direction: column;
     justify-content: flex-start;
@@ -45,12 +50,22 @@ ${({ theme }) => theme.mixins?.flexCenter};
     }
 
     .img {
+      width: 315px;
+      height: 315px;
 
-
+      @media (max-width: 1440px) {
+        width: 200px !important;
+        height: 200px !important;
+      }
+      @media (max-width: 1200px) {
+        width: 325px !important;
+        height: 325px !important;
+      }
       @media (max-width: 768px) {
         width: 200px !important;
         height: 200px !important;
       }
+
       position: relative;
       border-radius: var(--border-radius);
       mix-blend-mode: multiply;
