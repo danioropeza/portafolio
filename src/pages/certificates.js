@@ -194,11 +194,6 @@ const CertificatesPage = ({ data }) => {
                             <Icon name="GitHub" />
                           </a>
                         )}
-                        {github && (
-                          <a href={github} target="_blank" rel="noreferrer" aria-label="GitHub Link">
-                            <Icon name="GitHub" />
-                          </a>
-                        )}
                       </div>
                     </td>
                   </tr>

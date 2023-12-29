@@ -3,27 +3,39 @@
  */
 
 import { useState, useEffect } from 'react';
-const QUERY = '(prefers-reduced-motion: no-preference)';
+const NO_PREFERENCE_QUERY = '(prefers-reduced-motion: no-preference)';
+const IS_MOBILE_QUERY = '(max-width: 700px)';
 const isRenderingOnServer = typeof window === 'undefined';
 
-const getInitialState = () =>
-  // For our initial server render, we won't know if the user
-  // prefers reduced motion, but it doesn't matter. This value
-  // will be overwritten on the client, before any animations
-  // occur.
-  isRenderingOnServer ? true : !window.matchMedia(QUERY).matches;
+// For our initial server render, we won't know if the user
+// prefers reduced motion, but it doesn't matter. This value
+// will be overwritten on the client, before any animations
+// occur.
+const getInitialState = () => isRenderingOnServer ? true : (!window.matchMedia(NO_PREFERENCE_QUERY).matches || window.matchMedia(IS_MOBILE_QUERY).matches);
+
 function usePrefersReducedMotion() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(getInitialState);
+
   useEffect(() => {
-    const mediaQueryList = window.matchMedia(QUERY);
-    const listener = event => {
+    const checkNoPreference = window.matchMedia(NO_PREFERENCE_QUERY);
+    const checkIsMobile = window.matchMedia(IS_MOBILE_QUERY);
+    
+    const listenerNoPreferece = event => {
       setPrefersReducedMotion(!event.matches);
     };
-    mediaQueryList.addListener(listener);
+    const listenerIsMobile = event => {
+      setPrefersReducedMotion(event.matches);
+    };
+
+    checkNoPreference.addListener(listenerNoPreferece);
+    checkIsMobile.addListener(listenerIsMobile);
+
     return () => {
-      mediaQueryList.removeListener(listener);
+      checkNoPreference.removeListener(listenerNoPreferece);
+      checkIsMobile.removeListener(listenerIsMobile);
     };
   }, []);
+
   return prefersReducedMotion;
 }
 
