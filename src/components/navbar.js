@@ -18,6 +18,7 @@ const StyledNavbarWrapper = styled.header`
   height: var(--nav-height);
   transition: var(--transition);
   border-bottom: 3px solid var(--green);
+  justify-content: center;
 `;
 
 const StyledTopNavbar = styled.nav`
