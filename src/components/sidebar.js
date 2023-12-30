@@ -8,6 +8,7 @@ import { loaderDelay } from '@utils';
 import { usePrefersReducedMotion } from '@hooks';
 import { Icon } from '@components/icons';
 import { Footer, PersonalBrandLogo } from '@components';
+import { useLocation } from '@reach/router';
 import contentBackground from '../images/wall.jpeg';
 import sidebarBackground from '../images/increased-wall.jpeg';
 
@@ -121,6 +122,7 @@ const SidebarContent = styled.div`
 
 const Sidebar = ({ children }) => {
   const prefersReducedMotion = usePrefersReducedMotion();
+  let { pathname } = useLocation();
   const [isMounted, setIsMounted] = useState(false);
   const fadeClass = 'fade';
   const timeout = loaderDelay;
@@ -135,7 +137,9 @@ const Sidebar = ({ children }) => {
     };
   }, []);
 
-  const currentPath = typeof window === 'undefined' ? '' : window.location.pathname.replace(/\/$/, '');
+  if (pathname !== '/') {
+    pathname = pathname.replace(/\/$/, '');
+  }
 
   return (
     <>
@@ -149,7 +153,7 @@ const Sidebar = ({ children }) => {
                   {routes &&
                     routes.map((route, i) => (
                       <li key={i}>
-                        <NavigationButton className={route.to === currentPath ? 'active' : ''} activeClassName="active" to={route.to}>
+                        <NavigationButton className={route.to === pathname ? 'active' : ''} activeClassName="active" to={route.to}>
                           <div className="navigation-content">
                             <Icon name={route.iconName} />
                             {route.title}
@@ -166,7 +170,7 @@ const Sidebar = ({ children }) => {
                       routes.map((route, i) => (
                         <CSSTransition key={i} classNames={fadeClass} timeout={timeout}>
                           <li key={i} style={{ transitionDelay: `${i * 100}ms` }}>
-                            <NavigationButton className={route.to === currentPath ? 'active' : ''} activeClassName="active" to={route.to}>
+                            <NavigationButton className={route.to === pathname ? 'active' : ''} activeClassName="active" to={route.to}>
                               <div className="navigation-content">
                                 <Icon name={route.iconName} />
                                 {route.title}

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Icon } from '@components/icons';
 import { routes } from '@config';
 import { Link } from 'gatsby';
+import { useLocation } from '@reach/router';
 
 const StyledNavbarWrapper = styled.header`
   display: flex;
@@ -123,12 +124,15 @@ const NavigationButton = styled(Link)`
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  let { pathname } = useLocation();
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
 
-  const currentPath = typeof window === 'undefined' ? '' : window.location.pathname.replace(/\/$/, '');
+  if (pathname !== '/') {
+    pathname = pathname.replace(/\/$/, '');
+  }
 
   return (
     <>
@@ -146,7 +150,7 @@ const Navbar = () => {
             {routes &&
                       routes.map((route, i) => (
                         <li key={i}>
-                          <NavigationButton className={route.to === currentPath ? 'active' : ''} activeClassName="active" to={route.to} onClick={toggleMenu}>
+                          <NavigationButton className={route.to === pathname ? 'active' : ''} activeClassName="active" to={route.to} onClick={toggleMenu}>
                             <div className="navigation-content">
                               <Icon name={route.iconName} />
                               {route.title}
