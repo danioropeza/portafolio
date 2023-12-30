@@ -24,7 +24,10 @@ const StyledProjectsContainer = styled.section`
     position: relative;
 
     @media (max-width: 1080px) {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    }
+    @media (max-width: 670px) {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     }
   }
 `;
@@ -46,6 +49,10 @@ const StyledProjectCardGrid = styled.section`
   ${({ theme }) => theme.mixins?.resetList};
   display: grid;
   grid-template-columns: 60% 40%;
+
+  @media (max-width: 1080px) {
+    grid-template-columns: 100%;
+  }
   grid-gap: 0px;
 `;
 
@@ -53,6 +60,13 @@ const StyledProjectDetails = styled.div`
   color: var(--lightest-slate);
   font-size: var(--fz-md);
   padding-right: 20px;
+
+  @media (max-width: 1080px) {
+    padding-right: 0;
+  }
+  @media (max-width: 768px) {
+    font-size: var(--fz-sm);
+  }
 
   .project-intro {
     padding-bottom: 10px;
@@ -65,16 +79,22 @@ const StyledProjectDetails = styled.div`
     ul {
       ${({ theme }) => theme.mixins?.fancyList};
       font-size: var(--fz-md);
+
+      @media (max-width: 768px) {
+        font-size: var(--fz-sm);
+      }
     }
   }
 
   .project-technologies {
     padding-bottom: 10px;
+
     .highlight {
       color: var(--green);
     }
+
     .separator {
-      margin: 0 5px;
+      margin: 0 5px 0 3px;
     }
   }
 `;
@@ -83,7 +103,7 @@ const StyledProjectTitle = styled.h6`
   margin: 0;
   padding: 0;
   padding: 0 0 1rem 0;
-  font-size: 26px;
+  font-size: clamp(18px, 3.8vw, 36px);
   font-family:  var(--font-polo);
   color: var(--white);
   text-shadow:
@@ -97,13 +117,13 @@ const StyledWebCarousel = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  
   .project-external-links {
     padding-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
 
     svg {
       transition: var(--transition);
@@ -117,6 +137,11 @@ const StyledWebCarousel = styled.div`
   }
 `;
 
+const StyledWebContainer = styled.div`
+  @media (max-width: 1080px) {
+    display: none;
+  }
+`;
 
 const StyledWebHeader = styled.div`
   border: 3px solid var(--green);
@@ -217,6 +242,12 @@ const StyledMobileCarousel = styled.div`
     align-items: center;
     gap: 20px;
 
+    @media (max-width: 1080px) {
+      margin-rigth: 25px;
+      margin-top: 25px;
+      flex-direction: row;
+    }
+
     svg {
       transition: var(--transition);
       height: 25px !important;
@@ -232,6 +263,10 @@ const StyledMobileCarousel = styled.div`
 const StyledMobileContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 1080px) {
+    display: none;
+  }
 `;
 const StyledMobileHeader = styled.div`
   display: flex;
@@ -336,26 +371,27 @@ const ProjectsPage = ({ data }) => {
                   {item}
                   {''}
                   {i !== technologies.length - 1 && (
-                    <span className="separator">&middot;</span>
+                    <span className="separator"> &middot;</span>
                   )}
                 </span>
               ))
               }</p>
             </div>
-            <div className='project-technologies'>
-              {awsTechnologies?.length > 0 && (<p><span className='highlight'>AWS Technologies:&nbsp;&nbsp;</span>{
-                awsTechnologies.map((item, i) => (
-                  <span key={i}>
-                    {item}
-                    {''}
-                    {i !== awsTechnologies.length - 1 && (
-                      <span className="separator">&middot;</span>
-                    )}
-                  </span>
-                ))
-              }</p>)
-              }
-            </div>
+            {awsTechnologies?.length > 0 && (
+              <div className='project-technologies'>
+                <p><span className='highlight'>AWS Technologies:&nbsp;&nbsp;</span>{
+                  awsTechnologies.map((item, i) => (
+                    <span key={i}>
+                      {item}
+                      {''}
+                      {i !== awsTechnologies.length - 1 && (
+                        <span className="separator"> &middot;</span>
+                      )}
+                    </span>
+                  ))
+                }</p>
+              </div>)
+            }
           </StyledProjectDetails>
           {isMobile ? (
             <StyledMobileCarousel>
@@ -410,45 +446,47 @@ const ProjectsPage = ({ data }) => {
             </StyledMobileCarousel>
           ) : (
             <StyledWebCarousel>
-              <StyledWebHeader>
-                <div className='top-web-header'>
-                  <div className='tab-web-header'>
-                    <Icon name='WorldWide' />
-                    <span className='tab-app-name'>{title}</span>
-                    <Icon name='SmallClose' />
+              <StyledWebContainer>
+                <StyledWebHeader>
+                  <div className='top-web-header'>
+                    <div className='tab-web-header'>
+                      <Icon name='WorldWide' />
+                      <span className='tab-app-name'>{title}</span>
+                      <Icon name='SmallClose' />
+                    </div>
+                    <div className='options-web-header'>
+                      <Icon name='Minimize' />
+                      <Icon name='ReduceScreen' />
+                      <Icon name='Close' />
+                    </div>
                   </div>
-                  <div className='options-web-header'>
-                    <Icon name='Minimize' />
-                    <Icon name='ReduceScreen' />
-                    <Icon name='Close' />
+                  <div className='bottom-web-header'>
+                    <Icon name='LeftArrow' />
+                    <Icon name='RightArrow' />
+                    <Icon name='Reload' />
+                    <div className='bottom-web-header-search'>
+                    </div>
                   </div>
-                </div>
-                <div className='bottom-web-header'>
-                  <Icon name='LeftArrow' />
-                  <Icon name='RightArrow' />
-                  <Icon name='Reload' />
-                  <div className='bottom-web-header-search'>
-                  </div>
-                </div>
-              </StyledWebHeader>
-              <StyledWebContent>
-                <Carousel
-                  infiniteLoop={true}
-                  autoPlay={true}
-                  stopOnHover={true}
-                  swipeable={false}
-                  showArrows={false}
-                  showStatus={false}
-                  showIndicators={false}
-                  showThumbs={false}
-                  useKeyboardArrows={false}
-                  dynamicHeight={true}
-                  animationHandler={'fade'}
-                  interval={4000}
-                >
-                  {images.map(image => <GatsbyImage key={'carousel-image'} image={getImage(image)} alt={'-'} className="img"/>)}
-                </Carousel>
-              </StyledWebContent>
+                </StyledWebHeader>
+                <StyledWebContent>
+                  <Carousel
+                    infiniteLoop={true}
+                    autoPlay={true}
+                    stopOnHover={true}
+                    swipeable={false}
+                    showArrows={false}
+                    showStatus={false}
+                    showIndicators={false}
+                    showThumbs={false}
+                    useKeyboardArrows={false}
+                    dynamicHeight={true}
+                    animationHandler={'fade'}
+                    interval={4000}
+                  >
+                    {images.map(image => <GatsbyImage key={'carousel-image'} image={getImage(image)} alt={'-'} className="img"/>)}
+                  </Carousel>
+                </StyledWebContent>
+              </StyledWebContainer>
               <div className='project-external-links'>
                 {link && (
                   <a href={link} target="_blank" rel="noreferrer" aria-label="External Link">

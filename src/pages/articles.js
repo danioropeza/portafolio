@@ -193,7 +193,7 @@ const StyledArticleKeywords = styled.span`
   }
 
   .separator {
-    margin: 0 5px;
+    margin: 0 5px 0 3px;
   }
   span {
     display: inline-block;
@@ -245,7 +245,7 @@ const ArticlesPage = ({ data }) => {
                 {item}
                 {''}
                 {i !== keywords.length - 1 && (
-                  <span className="separator">&middot;</span>
+                  <span className="separator"> &middot;</span>
                 )}
               </span>
             ))

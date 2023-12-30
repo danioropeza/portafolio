@@ -92,7 +92,7 @@ const StyledTableContainer = styled.div`
         font-family: var(--font-mono);
         line-height: 1.5;
         .separator {
-          margin: 0 5px;
+          margin: 0 5px 0 3px;
         }
         span {
           display: inline-block;
@@ -176,7 +176,7 @@ const CertificatesPage = ({ data }) => {
                             {item}
                             {''}
                             {i !== technologies.length - 1 && (
-                              <span className="separator">&middot;</span>
+                              <span className="separator"> &middot;</span>
                             )}
                           </span>
                         ))}
