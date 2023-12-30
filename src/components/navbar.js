@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Icon } from '@components/icons';
-import { routes } from '@config';
+import { routes, socialMedia } from '@config';
 import { Link } from 'gatsby';
 import { useLocation } from '@reach/router';
 
@@ -56,10 +56,35 @@ const StyledMenuList = styled.div`
   top: 70px;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 70px);
   background-color: rgba(0, 0, 0, 1);
   z-index: 999;
   list-style: none;
+
+
+  .contact-me {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: center;
+    color: var(--green);
+    font-family: var(--font-mono);
+    font-size: var(--fz-xs);
+    padding-top: 30px;
+
+    .social-media-links {
+      padding-top: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        margin: 0 15px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
 `;
 
 const NavigationLinks = styled.div`
@@ -149,7 +174,7 @@ const Navbar = () => {
           <NavigationLinks>
             {routes &&
                       routes.map((route, i) => (
-                        <li key={i}>
+                        <li key={`route-button-${i}`}>
                           <NavigationButton className={route.to === pathname ? 'active' : ''} activeClassName="active" to={route.to} onClick={toggleMenu}>
                             <div className="navigation-content">
                               <Icon name={route.iconName} />
@@ -159,6 +184,17 @@ const Navbar = () => {
                         </li>
                       ))}
           </NavigationLinks>
+          <div className='contact-me'>
+            Contact me on my social networks!
+            <div className='social-media-links'>
+              {socialMedia &&
+                  socialMedia.map(({ url, name }) => (
+                    <a href={url} aria-label={name} key={`social-media-${name}`} target="_blank" rel="noreferrer">
+                      <Icon name={name} />
+                    </a>
+                  ))}
+            </div>
+          </div>
         </StyledMenuList>
       </StyledNavbarWrapper>
     </>
