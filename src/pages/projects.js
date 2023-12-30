@@ -19,11 +19,11 @@ const StyledProjectsContainer = styled.section`
   .projects-grid {
     ${({ theme }) => theme.mixins?.resetList};
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(1000px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(850px, 1fr));
     grid-gap: 50px;
     position: relative;
 
-    @media (max-width: 1080px) {
+    @media (max-width: 1400px) {
       grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     }
     @media (max-width: 670px) {
@@ -50,7 +50,7 @@ const StyledProjectCardGrid = styled.section`
   display: grid;
   grid-template-columns: 60% 40%;
 
-  @media (max-width: 1080px) {
+  @media (max-width: 1400px) {
     grid-template-columns: 100%;
   }
   grid-gap: 0px;
@@ -61,7 +61,7 @@ const StyledProjectDetails = styled.div`
   font-size: var(--fz-md);
   padding-right: 20px;
 
-  @media (max-width: 1080px) {
+  @media (max-width: 1400px) {
     padding-right: 0;
   }
   @media (max-width: 768px) {
@@ -117,7 +117,7 @@ const StyledWebCarousel = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+
   .project-external-links {
     padding-top: 20px;
     display: flex;
@@ -138,7 +138,7 @@ const StyledWebCarousel = styled.div`
 `;
 
 const StyledWebContainer = styled.div`
-  @media (max-width: 1080px) {
+  @media (max-width: 1400px) {
     display: none;
   }
 `;
@@ -242,7 +242,7 @@ const StyledMobileCarousel = styled.div`
     align-items: center;
     gap: 20px;
 
-    @media (max-width: 1080px) {
+    @media (max-width: 1400px) {
       margin-rigth: 25px;
       margin-top: 25px;
       flex-direction: row;
@@ -264,7 +264,7 @@ const StyledMobileContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 1080px) {
+  @media (max-width: 1400px) {
     display: none;
   }
 `;
