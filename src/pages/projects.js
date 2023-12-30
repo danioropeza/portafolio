@@ -361,7 +361,7 @@ const ProjectsPage = ({ data }) => {
             <div className='project-intro' dangerouslySetInnerHTML={{ __html: html }} />
             <div className='project-features'>
               <ul>
-                {features && features.map(feature => (<li key="project-feature">{feature}</li>))}
+                {features && features.map((feature, index) => (<li key={`project-feature-${index}`}>{feature}</li>))}
               </ul>
             </div>
             <div className='project-technologies'>

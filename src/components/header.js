@@ -16,14 +16,6 @@ const StyledHeaderWrapper = styled.header`
   height: var(--nav-height);
   background-color: transparent;
   transition: var(--transition);
-
-  @media (max-width: 1080px) {
-    padding: 0 40px;
-  }
-  @media (max-width: 768px) {
-    padding: 0 25px;
-  }
-
 `;
 
 const StyledHeaderContent = styled.nav`

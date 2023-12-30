@@ -10,6 +10,7 @@ import {
   IconAboutMe,
   IconArticles,
   IconVideos,
+  IconLogo,
   IconProjects,
   IconCertificates,
   IconEmail,
@@ -24,6 +25,7 @@ import {
   IconSmallClose,
   IconWorldWide,
 } from '@components/icons';
+import IconHamburger from './hamburger';
 
 const Icon = ({ name }) => {
   switch (name) {
@@ -47,8 +49,12 @@ const Icon = ({ name }) => {
       return <IconGallery />;
     case 'GitHub':
       return <IconGitHub />;
+    case 'Hamburger':
+      return <IconHamburger />;
     case 'LeftArrow':
       return <IconLeftArrow />;
+    case 'Logo':
+      return <IconLogo />;
     case 'Linkedin':
       return <IconLinkedin />;
     case 'Medium':

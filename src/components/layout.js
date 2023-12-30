@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import { Header } from '@components';
+import { Header, Sidebar, Navbar } from '@components';
 import { GlobalStyle, theme } from '@styles';
-import Sidebar from './sidebar';
 
 const Layout = ({ children }) => {
+  const IS_MOBILE_QUERY = '(max-width: 1080px)';
+  const isMobile = window.matchMedia(IS_MOBILE_QUERY).matches;
+  
   // Sets target="_blank" rel="noopener noreferrer" on external links
   /*const handleExternalLinks = () => {
     const allLinks = Array.from(document.querySelectorAll('a'));
@@ -41,7 +43,7 @@ const Layout = ({ children }) => {
       <div id="root">
         <ThemeProvider theme={theme}>
           <GlobalStyle />
-          <Header />
+          {isMobile ? <Navbar /> : <Header />}
           <Sidebar>{children}</Sidebar>
         </ThemeProvider>
       </div>

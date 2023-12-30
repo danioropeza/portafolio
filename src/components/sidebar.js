@@ -135,6 +135,8 @@ const Sidebar = ({ children }) => {
     };
   }, []);
 
+  const currentPath = window.location.pathname.replace(/\/$/, '');
+
   return (
     <>
       <SidebarMenu>
@@ -147,7 +149,7 @@ const Sidebar = ({ children }) => {
                   {routes &&
                     routes.map((route, i) => (
                       <li key={i}>
-                        <NavigationButton activeClassName="active" to={route.to}>
+                        <NavigationButton className={route.to === currentPath ? 'active' : ''} activeClassName="active" to={route.to}>
                           <div className="navigation-content">
                             <Icon name={route.iconName} />
                             {route.title}
@@ -164,7 +166,7 @@ const Sidebar = ({ children }) => {
                       routes.map((route, i) => (
                         <CSSTransition key={i} classNames={fadeClass} timeout={timeout}>
                           <li key={i} style={{ transitionDelay: `${i * 100}ms` }}>
-                            <NavigationButton activeClassName="active" to={route.to}>
+                            <NavigationButton className={route.to === currentPath ? 'active' : ''} activeClassName="active" to={route.to}>
                               <div className="navigation-content">
                                 <Icon name={route.iconName} />
                                 {route.title}
