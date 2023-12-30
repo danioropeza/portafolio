@@ -127,7 +127,7 @@ const Navbar = () => {
     setMenuOpen(!isMenuOpen);
   };
 
-  const currentPath = window.location.pathname.replace(/\/$/, '');
+  const currentPath = typeof window === 'undefined' ? '' : window.location.pathname.replace(/\/$/, '');
 
   return (
     <>

@@ -6,8 +6,8 @@ import { GlobalStyle, theme } from '@styles';
 
 const Layout = ({ children }) => {
   const IS_MOBILE_QUERY = '(max-width: 1080px)';
-  const isMobile = window.matchMedia(IS_MOBILE_QUERY).matches;
-  
+  const isMobile = typeof window === 'undefined' ? false : window.matchMedia(IS_MOBILE_QUERY).matches;
+
   // Sets target="_blank" rel="noopener noreferrer" on external links
   /*const handleExternalLinks = () => {
     const allLinks = Array.from(document.querySelectorAll('a'));
