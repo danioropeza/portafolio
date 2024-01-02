@@ -12,9 +12,12 @@ To set the environment locally, run the following commands:
 
 3.- `npm run start`
 
-Versions:
+### Versions:
 
 - NodeJS: 21.5.0
 - NPM: 10.2.4
 - React: 18.2.0
 - Gatsby: 5.13.0
+
+### Lighthouse result 2023-02-01
+![image](https://github.com/danioropeza/portafolio/assets/33135078/5086f34c-eba3-47ab-91e6-548e88f15612)
