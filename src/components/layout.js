@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import { Header, Sidebar, Navbar } from '@components';
@@ -20,8 +20,17 @@ const Headers = styled.div`
 `;
 
 const Layout = ({ children }) => {
+  // This is for fixing production console errors related with hydratation. 
+  const [domLoaded, setDomLoaded] = useState(false);
+
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
+
+
   return (
     <>
+    {domLoaded && (
       <div id="root">
         <ThemeProvider theme={theme}>
           <GlobalStyle />
@@ -36,6 +45,7 @@ const Layout = ({ children }) => {
           <Sidebar>{children}</Sidebar>
         </ThemeProvider>
       </div>
+      )}
     </>
   );
 };
