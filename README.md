@@ -23,5 +23,6 @@ To set the environment locally, run the following commands:
 ![image](https://github.com/danioropeza/portafolio/assets/33135078/5086f34c-eba3-47ab-91e6-548e88f15612)
 
 ### Future improvementes
+- Fix the scroll error
 - Add dev linter
 - Add search bar to filter with categories 
