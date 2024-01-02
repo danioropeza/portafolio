@@ -1,11 +1,10 @@
 /* eslint-disable react/jsx-key */
 import React, { useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet';
 import styled, { css }  from 'styled-components';
 import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
 import { Icon } from '@components/icons';
-import { Hero, WorkExperience, PersonalInformation } from '@components';
+import { Hero, WorkExperience, PersonalInformation, SEO } from '@components';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 
 const StyledDownArrow = styled.div`
@@ -72,7 +71,6 @@ const AboutMePage = () => {
 
   return (
     <>
-      <Helmet title={'About Me'} />
       <div className={prefersReducedMotion ? '' : 'load-hidden'}>
         {sections.length > 0 && sections.map((section, i) => (
           <div key={i} ref={el => (revealSections.current[i] = el)}>

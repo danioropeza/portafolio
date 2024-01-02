@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
-import { PageTitle } from '@components';
+import { PageTitle, SEO } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledArticlesContainer = styled.section`

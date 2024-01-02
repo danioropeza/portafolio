@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Helmet } from 'react-helmet';
 import { usePrefersReducedMotion } from '@hooks';
 import { srConfig } from '@config';
 import scrollReveal from '@utils/scrollReveal';
@@ -28,8 +27,6 @@ const PageTitle = ({ title, subtitle }) => {
 
   return (
     <StyledPageTitle>
-      <Helmet title={title} />
-
       <header ref={revealTitle} className={prefersReducedMotion ? '' : 'load-hidden'}>
         <h1 className="page-title">{title}</h1>
         <p className="page-subtitle">

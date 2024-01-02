@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { SEO } from '@components';
@@ -36,8 +35,6 @@ const NotFoundPage = () => {
 
   return (
     <>
-      <Helmet title="Page Not Found" />
-
       <StyledMainContainer className="fillHeight">
         <StyledTitle>404</StyledTitle>
         <StyledSubtitle>Page Not Found</StyledSubtitle>
