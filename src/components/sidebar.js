@@ -7,7 +7,7 @@ import { Link } from 'gatsby';
 import { loaderDelay } from '@utils';
 import { usePrefersReducedMotion } from '@hooks';
 import { Icon } from '@components/icons';
-import { Footer, PersonalBrandLogo } from '@components';
+import { SidebarFooter, PageFooter, PersonalBrandLogo } from '@components';
 import { useLocation } from '@reach/router';
 import contentBackground from '../images/wall.jpeg';
 import sidebarBackground from '../images/increased-wall.jpeg';
@@ -112,7 +112,7 @@ const SidebarContent = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 90px 50px 100px 340px;
+  padding: 90px 50px 80px 340px;
 
   @media (max-width: 1080px) {
     padding: 90px 35px 35px 35px;
@@ -184,10 +184,13 @@ const Sidebar = ({ children }) => {
               )}
             </ol>
           </NavigationLinks>
-          <Footer />
+          <SidebarFooter />
         </SidebarMenuList>
       </SidebarMenu>
-      <SidebarContent>{children}</SidebarContent>
+      <SidebarContent>
+        {children}
+        <PageFooter />
+      </SidebarContent>
     </>
   );
 };

@@ -1,7 +1,8 @@
 export { default as Head } from './head';
 export { default as Layout } from './layout';
 export { default as Header } from './header';
-export { default as Footer } from './footer';
+export { default as SidebarFooter } from './sidebar-footer';
+export { default as PageFooter } from './page-footer';
 export { default as Sidebar } from './sidebar';
 export { default as Navbar } from './navbar';
 export { default as PersonalBrandLogo } from './PersonalBrandLogo';
