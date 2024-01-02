@@ -1,4 +1,7 @@
-const config = require('./src/config');
+/**
+ * @type {import('gatsby').GatsbyConfig}
+ */
+ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
