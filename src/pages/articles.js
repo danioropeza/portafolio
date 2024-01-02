@@ -305,3 +305,7 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export const Head = () => (
+  <SEO title="Articles" description="This page shows all articles I wrote about Software Development" pathname="/articles"/>
+);

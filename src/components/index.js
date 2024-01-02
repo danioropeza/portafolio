@@ -6,6 +6,7 @@ export { default as PageFooter } from './page-footer';
 export { default as Sidebar } from './sidebar';
 export { default as Navbar } from './navbar';
 export { default as PersonalBrandLogo } from './PersonalBrandLogo';
+export { default as SEO } from './seo';
 export { default as PageTitle } from './PageTitle';
 export { default as Hero } from './sections/hero';
 export { default as WorkExperience } from './sections/WorkExperience';

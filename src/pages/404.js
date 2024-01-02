@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { SEO } from '@components';
 
 const StyledMainContainer = styled.main`
   ${({ theme }) => theme.mixins?.flexCenter};
@@ -51,3 +52,7 @@ NotFoundPage.propTypes = {
 };
 
 export default NotFoundPage;
+
+export const Head = () => (
+  <SEO title="404" description="This page is for 404 not found pages" />
+);

@@ -483,7 +483,7 @@ const ProjectsPage = ({ data }) => {
                     animationHandler={'fade'}
                     interval={4000}
                   >
-                    {images.map(image => <GatsbyImage key={'carousel-image'} image={getImage(image)} alt={'-'} className="img"/>)}
+                    {images.map(image => <GatsbyImage key={'carousel-image'} image={getImage(image)} alt={title + ' - Daniel Oropeza'} className="img"/>)}
                   </Carousel>
                 </StyledWebContent>
               </StyledWebContainer>
@@ -571,3 +571,7 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export const Head = () => (
+  <SEO title="Projects" description="This page shows my projects in the Software Development industry" pathname="/projects"/>
+);

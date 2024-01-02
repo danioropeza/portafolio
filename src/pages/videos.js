@@ -206,3 +206,7 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export const Head = () => (
+  <SEO title="Videos" description="This page shows my videos related to Software Development" pathname="/videos"/>
+);

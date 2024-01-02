@@ -18,7 +18,7 @@ const PersonalBrandLogo = () => (
       src="../images/logo.png"
       quality={100}
       formats={['AUTO', 'WEBP', 'AVIF']}
-      alt="logo"
+      alt="Daniel Oropeza"
       placeholder="blurred"
       layout="fixed"
       width={150}

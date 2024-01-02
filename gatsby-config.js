@@ -10,7 +10,6 @@ module.exports = {
       'Daniel Oropeza is a full-stack software engineer.',
     siteUrl: 'https://danioropeza.com', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@danioropeza',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

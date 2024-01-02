@@ -88,3 +88,7 @@ const AboutMePage = () => {
 };
 
 export default AboutMePage;
+
+export const Head = () => (
+  <SEO title="About me" description="This page shows all my work experiencia and personal information"/>
+);

@@ -233,3 +233,7 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export const Head = () => (
+  <SEO title="Certificates" description="This page shows all my certificates related to Software Development" pathname="/certificates"/>
+);
