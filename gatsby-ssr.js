@@ -6,3 +6,8 @@ exports.wrapPageElement  = ({ element }) => (
     {element}
   </Layout>
 );
+
+exports.shouldUpdateScroll = () => {
+  window.scrollTo(0, 0);
+  return [0, 0];
+};
