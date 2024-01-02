@@ -50,8 +50,8 @@ ${({ theme }) => theme.mixins?.flexCenter};
     }
 
     .img {
-      width: 315px;
-      height: 315px;
+      width: 315px !important;
+      height: 315px !important;
 
       @media (max-width: 1440px) {
         width: 200px !important;
