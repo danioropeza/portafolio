@@ -220,7 +220,7 @@ const PersonalInformation = () => {
       content: (
         <div className='description'>
           <p>
-            Full-Stack Software Engineer with <span className='highlight'>4+ years of experience</span> in the market, mostly focusing on <span className='highlight'>Web and Hybrid</span>. Currently working in the field
+            Full-Stack Software Engineer with <span className='highlight'>4+ years of experience</span> in the industry of Software Development. Currently working in the field
             of contact center software as a service that helps agents connect with their customers through our globally known platform.
           </p>
           <p>I am passionate about <span className='highlight'>creating code and that it generates an impact of value in people's lives</span>. The technology is building the future.</p>
