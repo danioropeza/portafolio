@@ -16,6 +16,10 @@ const StyledTableContainer = styled.div`
     width: 100%;
     border-collapse: collapse;
 
+    .issued-by-title {
+      min-width: 105px;
+    }
+
     .hide-on-mobile {
       @media (max-width: 768px) {
         display: none;
@@ -150,7 +154,7 @@ const CertificatesPage = ({ data }) => {
             <tr>
               <th>Year</th>
               <th>Title</th>
-              <th className="hide-on-mobile">Issued by</th>
+              <th className="issued-by-title hide-on-mobile">Issued by</th>
               <th className="hide-on-mobile">Employed technologies</th>
               <th>Link</th>
             </tr>
