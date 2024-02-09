@@ -10,8 +10,7 @@ const StyledNavbarWrapper = styled.header`
   flex-direction: column;
   position: fixed;
   filter: none !important;
-  backdrop-filter: blur(10px);
-  background-color: rgba(0, 0, 0, 0.50);
+  background-color: var(--black);
   top: 0;
   z-index: 11;
   padding: 0px 32px 0px 27px;
