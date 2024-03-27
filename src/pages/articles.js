@@ -259,7 +259,7 @@ const ArticlesPage = ({ data }) => {
     <>
       <PageTitle
         title="Articles"
-        subtitle="I produce valuable content focused on Software Development!"
+        subtitle="More than 10+ valuable articles focused on Software Development!"
       />
       <StyledArticlesContainer ref={revealArticlesList} className={prefersReducedMotion ? '' : 'load-hidden'}>
         <ul className="articles-grid">
