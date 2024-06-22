@@ -1,0 +1,8 @@
+
+Datos de la pagina
+Multichannel?
+La UI soporta cosas?
+TM corriga a Contact Settings
+Static handling - Dynamic handling
+Post deployment scripts en los datos de los usuarios
+1 media type deshabilitado? incosistencias
